@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import React, { PureComponent } from 'react';
 
 const data = [
   { name: 'Group A', value: 400 },
@@ -12,7 +13,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -30,7 +31,6 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
           <Pie
             data={data}
@@ -47,7 +47,6 @@ function App() {
             ))}
           </Pie>
         </PieChart>
-      </ResponsiveContainer>
         <a
           className="App-link"
           href="https://reactjs.org"
