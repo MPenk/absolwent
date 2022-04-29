@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import ReactECharts from 'echarts-for-react';
 const style = {
@@ -6,16 +5,21 @@ const style = {
   width: "100%"
 };
 let option = {
+  title: {
+    text: 'Szaunkowe dane odnośnie pzyszłego zatrudnienia studentów',
+    subtext: 'Kierunek Inforamtyka rocznik 2019/2020',
+    left: 'center'
+  },
   tooltip: {
     trigger: 'item'
   },
   legend: {
-    top: '5%',
-    left: 'center'
+    orient: 'vertical',
+    left: 'left'
   },
   series: [
     {
-      name: 'Access From',
+      name: 'Zawód',
       type: 'pie',
       radius: ['40%', '70%'],
       avoidLabelOverlap: false,
@@ -39,11 +43,11 @@ let option = {
         show: false
       },
       data: [
-        { value: 1048, name: 'Search Engine' },
-        { value: 735, name: 'Direct' },
-        { value: 580, name: 'Email' },
-        { value: 484, name: 'Union Ads' },
-        { value: 300, name: 'Video Ads' }
+        { value: 33, name: 'Bezrobotny' },
+        { value: 4, name: 'Programista' },
+        { value: 4, name: 'Analityk' },
+        { value: 2, name: 'Sprzedawca frytek' },
+        { value: 1, name: 'Elektronik' }
       ]
     }
   ]
@@ -52,10 +56,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Absolwent!
         </p>
+        
         <ReactECharts option={option} style={style} className="pie-chart"/>
       </header>
     </div>
