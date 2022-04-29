@@ -46,8 +46,7 @@ let option = {
         { value: 33, name: 'Bezrobotny' },
         { value: 4, name: 'Programista' },
         { value: 4, name: 'Analityk' },
-        { value: 2, name: 'Sprzedawca frytek' },
-        { value: 1, name: 'Elektronik' }
+        { value: 2, name: 'Sprzedawca frytek' }
       ]
     }
   ]
