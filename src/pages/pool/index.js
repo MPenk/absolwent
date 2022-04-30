@@ -1,4 +1,4 @@
-export function Questionnaire(props) {
+export function Pool(props) {
 
     return (
         <>
