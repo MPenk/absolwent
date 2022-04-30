@@ -2,6 +2,8 @@
   text-align: center;
   min-height: 100vh;
 }
+.Footer{
+}
 
 .App-logo {
   height: 40vmin;
@@ -27,8 +29,9 @@
     left: 0;
     bottom: 0;
     min-height: 40px;
-    background-color: #1F1F1F;
     color: white;
+  background-color: var(--background-footer);
+
 }
 .Nav-el {
   color: rgb(182, 182, 182);
@@ -58,15 +61,20 @@ ul {
   margin-inline-end: 0px;
   padding-inline-start: 0;
 }
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+:root {
+  --background: white;
+  --text-primary: black;
+  --text-secondary: royalblue;
+  --accent: purple;
+  --background-footer:black;
+
+}
+[data-theme='dark'] {
+  --background-footer:white;
+  --background: black;
+  --text-primary: white;
+  --text-secondary: grey;
+  --accent: darkred;
 }
