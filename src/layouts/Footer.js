@@ -10,6 +10,9 @@ export function Footer(props) {
                 <li>
                     <NavLink to="/contact" className="Nav-el" >Kontakt</NavLink >
                 </li>
+                <li>
+                <a href="https://iconscout.com/icons/graduation" target="_blank" rel="noreferrer">Graduation Icon</a> by <a href="https://iconscout.com/contributors/amit-jakhu">Amit Jakhu</a> on <a href="https://iconscout.com">IconScout</a>
+                </li>
             </ul>
         </footer>
     )
