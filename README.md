@@ -1,5 +1,10 @@
 # [Strona główna](https://absolwent.best/)
 
+# Testowe API
+
+[Api](https://absolwent.azurewebsites.net/api)
+
+[Swagger](https://absolwent.azurewebsites.net/swagger/index.html)
 
 # Użyte Biblioteki
 ~~[react-chartjs-2](https://www.npmjs.com/package/react-chartjs-2)~~ 
