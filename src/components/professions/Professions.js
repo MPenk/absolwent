@@ -56,9 +56,9 @@ let option = {
 
 export function Professions(props) {
 
-    return (
-        <>
-        <ReactECharts option={option} style={style} className="pie-chart"/>
-        </>
-    )
+  return (
+    <>
+      <ReactECharts option={option} style={style} className="pie-chart"/>
+    </>
+  )
 }
