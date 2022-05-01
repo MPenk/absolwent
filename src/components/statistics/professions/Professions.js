@@ -7,7 +7,7 @@ const style = {
 let option = {
 
   title: {
-    text: 'Szaunkowe dane odnośnie pzyszłego zatrudnienia studentów',
+    text: 'Szacunkowe dane odnośnie przyszłego zatrudnienia studentów',
     subtext: 'Kierunek Inforamtyka rocznik 2019/2020',
     left: 'center'
   },
