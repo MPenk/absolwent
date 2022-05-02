@@ -26,7 +26,7 @@ export function SendPool(props) {
 
     const handleSend = async () => {
         handleToggleDialog();
-        const result = await execute({ path: "/admin/pool", requestMethod: "POST", data: value });
+        const result = await execute({ path: "/admin/pool", requestMethod: "POST", data: {frequency: value} });
         if (result) {
             store.dispatch(actions.add({ title: "Sukces", message: "Wysłano ankiety", type: "success" }));
             navigate('/admin');
