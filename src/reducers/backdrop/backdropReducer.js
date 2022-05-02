@@ -1,6 +1,6 @@
 import types from "./types"
 
-const INITIAL_STATE = { open: localStorage.getItem("backdrop") ? JSON.parse(localStorage.getItem("backdrop")) : false}
+const INITIAL_STATE = { open: false}
 
 const backdropReducer = (state = INITIAL_STATE, action = null) => {
     switch (action.type) {

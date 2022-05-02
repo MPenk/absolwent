@@ -16,7 +16,7 @@ export const execute = async ({path, requestMethod, setError, data, showBackdrop
         method: requestMethod,
         body: JSON.stringify(data)
     }).then((response) => {
-        store.dispatch(actionBackdrop.turnOff());
+        if(showBackdrop) store.dispatch(actionBackdrop.turnOff());
 
         if (!response.ok)
             throw response;
@@ -24,7 +24,7 @@ export const execute = async ({path, requestMethod, setError, data, showBackdrop
     }).catch(async err => {
         try {
             err.json().then(response => {
-                if(showBackdrop) store.dispatch(actions.add({ title: "Error", message: response.message, type: "error" }));
+                store.dispatch(actions.add({ title: "Error", message: response.message, type: "error" }));
                 if(setError) setError({ exist: true, message: response.message })
             });
             return false;
