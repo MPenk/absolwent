@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import darkModeReducer from './reducers/darkMode';
-import userReducer from './reducers/user/reducers';
+import userReducer from './reducers/user';
 import alertsReducer from './reducers/alerts';
 import backdropReducer from './reducers/backdrop';
 
