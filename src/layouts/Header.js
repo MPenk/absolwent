@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 import DarkMode from '../utils/DarkMode'
 
-export default function Header(props) {
+export default function Header(_props) {
 
     let navigate = useNavigate();
     const pages = [
