@@ -7,14 +7,9 @@ export function Admin(_props) {
 
     return (
         <>
-
             <AdminRoute>
-                <Helmet>
-                    <title>Absolwent | Admin</title>
-                </Helmet>
                 <Dashboard />
             </AdminRoute>
-
         </>
     )
 }
