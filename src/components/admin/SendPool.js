@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import{ execute}  from '../../api/connection';
+import { execute } from '../../api/connection';
 import { useNavigate } from 'react-router-dom';
 import Input from '@mui/material/Input';
 import Grid from '@mui/material/Grid';
@@ -22,10 +22,10 @@ export function SendPool(props) {
         props.handleToggle();
         const result = await execute("/admin/pool", "POST", setErrorApi, value);
         if (result) {
-            store.dispatch(actions.add({title:"Sukces", message: "Wysłano ankiety", type: "success" }));
+            store.dispatch(actions.add({ title: "Sukces", message: "Wysłano ankiety", type: "success" }));
             navigate('/admin');
         }
-        else{
+        else {
 
         }
     };
@@ -48,7 +48,7 @@ export function SendPool(props) {
         <Dialog onClose={props.handleClose} open={props.open}>
             <DialogTitle>Ustaw częstotliwość</DialogTitle>
             <Box sx={{ margin: 3, minWidth: "300px" }}>
-                <Typography id="input-slider"  gutterBottom>
+                <Typography id="input-slider" gutterBottom>
                     Miesiące
                 </Typography>
                 <Grid container spacing={2} alignItems="center">
