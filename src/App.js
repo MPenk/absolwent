@@ -13,7 +13,6 @@ import DarkMode from './utils/darkMode';
 import Container from '@mui/material/Container';
 import Alerts from './components/Alerts';
 import Backdrop from './components/Backdrop';
-import { Helmet } from 'react-helmet';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -36,16 +35,13 @@ function App(props) {
     <BrowserRouter >
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <CssBaseline />
-        <Helmet>
-        <title>Absolwent</title>
-      </Helmet>
         <div data-theme={isDarkTheme ? 'dark' : 'light'} className='App'>
-          <Backdrop/>
+          <Backdrop />
           <Header />
-          <Alerts/>
+          <Alerts />
 
           <DarkMode />
-          <Container sx={{flex: "1"}}>
+          <Container sx={{ flex: "1" }}>
             <Routes >
               <Route path='/' element={<Statistics />} exact />
               <Route path='/admin' element={<Admin />} exact />

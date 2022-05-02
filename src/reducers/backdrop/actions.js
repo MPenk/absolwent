@@ -9,7 +9,7 @@ const turnOn = item => ({
 const turnOff = item => ({
     type: types.TURN_OFF, item
 })
-export default{
+export default {
     toogle,
     turnOn,
     turnOff
