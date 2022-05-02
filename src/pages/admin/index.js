@@ -12,7 +12,6 @@ export function Admin(_props) {
                 <Helmet>
                     <title>Absolwent | Admin</title>
                 </Helmet>
-                <Logout />
                 <Dashboard />
             </AdminRoute>
 

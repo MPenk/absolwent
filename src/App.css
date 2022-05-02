@@ -14,7 +14,7 @@
 }
 .App-footer{
     width: 100%;
-    min-height: 100px;
+    min-height: 25px;
     color: var(--color-footer);
     background-color: var(--background-footer);
     align-self: flex-end;

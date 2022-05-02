@@ -2,6 +2,7 @@ import config from '../config.json';
 import store from '../store';
 import actions from '../reducers/alerts/actions';
 import { backdropActions as actionBackdrop } from '../reducers/backdrop';
+
 export const execute = async ({path, requestMethod, setError, data, showBackdrop = true}) => {
     if(setError) setError({ exist: false, message: "" })
     if(showBackdrop) store.dispatch(actionBackdrop.turnOn());
