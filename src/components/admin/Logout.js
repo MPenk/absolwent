@@ -11,7 +11,6 @@ function Logout(props) {
     const handeLogout= () =>{
         props.clearUser();
             navigate('/');
-        return;
     }
     return (
         <Button color="secondary" onClick={handeLogout} >Wyloguj</Button>

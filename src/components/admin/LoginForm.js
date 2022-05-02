@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import actions from '../../reducers/user/actions';
 import { TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import {execute }from '../../api/connection';
+import { execute } from '../../api/connection';
 import { useForm } from 'react-hook-form';
 
 function LoginForm(props) {
@@ -13,7 +13,7 @@ function LoginForm(props) {
     const { register, handleSubmit, formState: { errors }, setError } = useForm();
 
     const onSubmit = async data => {
-        const result = await execute("/auth/admin", "POST", setErrorApi, data);
+        const result = await execute({ path: "/auth/admin", requestMethod: "POST", setError: setErrorApi, data: data });
         if (result) {
             props.setUser(result);
             navigate('/admin');
@@ -25,11 +25,22 @@ function LoginForm(props) {
     }
     let navigate = useNavigate();
 
+    const isError = (eventError) => {
+        if(eventError)
+            return true;
+        return error.exist ? true : false
+    }
+    const removeError = () =>{
+        if(error.exist){
+            error.exist = false;
+            error.message = "";
+        }
+    }
     return (
         <>
             <FormControl component="form" onSubmit={handleSubmit(onSubmit)}>
                 <TextField
-                    error={errors.email ? true : false}
+                    error={isError(errors.email)}
                     helperText={errors.email ? errors.email.message : ""}
                     margin="normal"
                     fullWidth
@@ -38,6 +49,7 @@ function LoginForm(props) {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    onChange={removeError()}
                     {...register("email", {
                         required: "Wymagane",
                         minLength: { value: 3, message: "Minimalna długość to 3" },
@@ -45,7 +57,7 @@ function LoginForm(props) {
                     })}
                 />
                 <TextField
-                    error={errors.password ? true : (error.exist ? true : false)}
+                    error={isError(errors.password)}
                     helperText={errors.password ? errors.password.message : ""}
                     margin="normal"
                     fullWidth
@@ -54,6 +66,7 @@ function LoginForm(props) {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={removeError()}
                     {...register("password", {
                         required: "Wymagane",
                         minLength: { value: 8, message: "Minimalna długość to 8" },

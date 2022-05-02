@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Alert as AlertMui } from '@mui/material';
+import { Alert as AlertMui, Stack, Collapse } from '@mui/material';
 import AlertTitle from '@mui/material/AlertTitle';
-import { Stack } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { Collapse } from '@mui/material';
 import { connect } from 'react-redux';
 import actions from '../reducers/alerts/actions';
 import CircularProgress from '@mui/material/CircularProgress';
-function Alert({ alert, remove, ...props }) {
+function Alert({ alert, ...props }) {
     const [open, setOpen] = useState(true);
     const [progress, setProgress] = React.useState(1);
     setTimeout(() => { removeAlert(); }, 10000);

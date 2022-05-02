@@ -8,7 +8,7 @@ const INITIAL_STATE = localStorage.getItem("user") ? JSON.parse(localStorage.get
 }
 
 
-const userReducer = (state = INITIAL_STATE, action) => {
+const userReducer = (state = INITIAL_STATE, action = null) => {
     switch (action.type) {
         case types.SET_USER:
             return {

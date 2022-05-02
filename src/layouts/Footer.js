@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-export function Footer(props) {
 
+export function Footer(_props) {
     return (
         <footer className="App-footer">
             <ul>
@@ -11,7 +11,7 @@ export function Footer(props) {
                     <NavLink to="/contact" className="Nav-el" >Kontakt</NavLink >
                 </li>
                 <li>
-                <a href="https://iconscout.com/icons/graduation" target="_blank" rel="noreferrer">Graduation Icon</a> by <a href="https://iconscout.com/contributors/amit-jakhu">Amit Jakhu</a> on <a href="https://iconscout.com">IconScout</a>
+                    <a href="https://iconscout.com/icons/graduation" target="_blank" rel="noreferrer">Graduation Icon</a> by <a href="https://iconscout.com/contributors/amit-jakhu">Amit Jakhu</a> on <a href="https://iconscout.com">IconScout</a>
                 </li>
             </ul>
         </footer>

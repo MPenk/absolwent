@@ -3,8 +3,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import LoginForm from '../../components/admin/LoginForm';
 
-export function Login(props) {
-
+export function Login(_props) {
     return (
         <>
             <Container component="main" maxWidth="xs">
@@ -17,13 +16,10 @@ export function Login(props) {
                     }}
                 >
                     Logowanie
-                    <LoginForm>
-
-                    </LoginForm>
-
+                    <LoginForm/>
                     <Link href="#" variant="body2">
-                  Zapomniałeś hasła?
-                </Link>
+                        Zapomniałeś hasła?
+                    </Link>
                 </Box>
             </Container>
         </>
