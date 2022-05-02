@@ -1,5 +1,4 @@
-import { AppBar, Box, Button, Container } from '@mui/material';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { AppBar, Box, Button } from '@mui/material';
 import Icon from '../components/admin/Icon';
 import Logo from '../assets/Logo.svg'
 import * as React from 'react';
@@ -44,7 +43,7 @@ export default function Header(props) {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }}
                         >
-                            <img onClick={() => { handleRedirect('/') }} src={Logo} />
+                            <img alt='Logo' onClick={() => { handleRedirect('/') }} src={Logo} />
                         </Typography>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,7 +88,7 @@ export default function Header(props) {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        <img src={Logo} />
+                        <img alt='Logo' onClick={() => { handleRedirect('/') }} src={Logo} />
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 

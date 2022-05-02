@@ -7,6 +7,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+
 function DarkMode(props) {
     const [darkMode, setDarkMode] = useState(props.darkMode.isDark);
 
