@@ -18,12 +18,26 @@
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fabsolwent.best%2F)
 ![GitHub issues](https://img.shields.io/github/issues/MPenk/absolwent)
 
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=bugs)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=code_smells)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=ncloc)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=alert_status)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=security_rating)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=sqale_index)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
+
+
 # [Dev](https://dev.absolwent.best/)
 
 ![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621153-2d11191f4397e411469ae3fc)
 ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621153-2d11191f4397e411469ae3fc)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MPenk/absolwent/DEV)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fdev.absolwent.best%2F)
+
+
 
 # [Testowe API](https://absolwent.azurewebsites.net/api)
 
