@@ -30,16 +30,13 @@ function LoginForm(props) {
             return true;
         return error.exist ? true : false
     }
-    const removeError = () =>{
-        if(error.exist){
-            error.exist = false;
-            error.message = "";
-        }
-    }
+
+
     return (
         <>
             <FormControl component="form" onSubmit={handleSubmit(onSubmit)}>
                 <TextField
+                    onChange={error.exist&&setErrorApi({...error, exist:false, message:""})}
                     error={isError(errors.email)}
                     helperText={errors.email ? errors.email.message : ""}
                     margin="normal"
@@ -49,7 +46,6 @@ function LoginForm(props) {
                     name="email"
                     autoComplete="email"
                     autoFocus
-                    onChange={removeError()}
                     {...register("email", {
                         required: "Wymagane",
                         minLength: { value: 3, message: "Minimalna długość to 3" },
@@ -66,7 +62,7 @@ function LoginForm(props) {
                     type="password"
                     id="password"
                     autoComplete="current-password"
-                    onChange={removeError()}
+                    onChange={error.exist&&setErrorApi({...error, exist:false, message:""})}
                     {...register("password", {
                         required: "Wymagane",
                         minLength: { value: 8, message: "Minimalna długość to 8" },
