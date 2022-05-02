@@ -31,14 +31,17 @@ function Alert({ alert, ...props }) {
         <Collapse in={open}>
             <Stack sx={{ width: '100%' }} spacing={2}>
                 <AlertMui action={
-                    <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
-                        onClick={removeAlert}>
+                    <>
                         <CircularProgress variant="determinate" value={progress} color="inherit" sx={{ mr: 3 }} />
-                        <CloseIcon fontSize="inherit" />
-                    </IconButton>} sx={{ mb: 2 }} severity={alert.type} >
+                        <IconButton
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={removeAlert}>
+                            <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    </>
+                } sx={{ mb: 2 }} severity={alert.type} >
                     {alert.title && <AlertTitle sx={{ display: 'flex' }}>{alert.title}</AlertTitle>}
                     {alert.message ? alert.message : "Nieznany błąd"}
                 </AlertMui>
