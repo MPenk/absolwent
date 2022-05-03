@@ -12,11 +12,11 @@
 
 # [Prod](https://absolwent.best/)
 
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621145-67f488fcdba1f9330d6bc868)
-![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621145-67f488fcdba1f9330d6bc868)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MPenk/absolwent/PROD)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621145-67f488fcdba1f9330d6bc868)](https://stats.uptimerobot.com/A2103fZYKv/791621145)
+[![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621145-67f488fcdba1f9330d6bc868)](https://stats.uptimerobot.com/A2103fZYKv/791621145)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MPenk/absolwent/PROD)](https://github.com/MPenk/absolwent/actions/workflows/PROD.yml)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fabsolwent.best%2F)
-![GitHub issues](https://img.shields.io/github/issues/MPenk/absolwent)
+[![GitHub issues](https://img.shields.io/github/issues/MPenk/absolwent)](https://github.com/MPenk/absolwent/issues)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=bugs)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=MPenk_absolwent&metric=code_smells)](https://sonarcloud.io/dashboard?id=MPenk_absolwent)
@@ -32,25 +32,25 @@
 
 # [Dev](https://dev.absolwent.best/)
 
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621153-2d11191f4397e411469ae3fc)
-![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621153-2d11191f4397e411469ae3fc)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MPenk/absolwent/DEV)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621153-2d11191f4397e411469ae3fc)](https://stats.uptimerobot.com/A2103fZYKv/791621153)
+[![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621153-2d11191f4397e411469ae3fc)](https://stats.uptimerobot.com/A2103fZYKv/791621153)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MPenk/absolwent/DEV)](https://github.com/MPenk/absolwent/actions/workflows/DEV.yml)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fdev.absolwent.best%2F)
 
 
 
-# [Testowe API](https://absolwent.azurewebsites.net/api)
+# [Testowe API](https://absolwent.azurewebsites.net/api/public/status)
 
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621149-f19a2479c787fff334ca977c)
-![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621149-f19a2479c787fff334ca977c)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m791621149-f19a2479c787fff334ca977c)](https://stats.uptimerobot.com/A2103fZYKv/791621149)
+[![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m791621149-f19a2479c787fff334ca977c)](https://stats.uptimerobot.com/A2103fZYKv/791621149)
 
 
 [Swagger](https://absolwent.azurewebsites.net/swagger/index.html)
 
-![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Public&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fpublic%2Fswagger.json)
-![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Auth&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fauth%2Fswagger.json)
-![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Admin&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fadmin%2Fswagger.json)
-![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Pool&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fpool%2Fswagger.json)
+[![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Public&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fpublic%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Public)
+[![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Auth&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fauth%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Auth)
+[![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Admin&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fadmin%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Admin)
+[![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Pool&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fpool%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Pool)
 
 <br>
 
