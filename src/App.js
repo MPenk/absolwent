@@ -9,11 +9,19 @@ import { Pool } from './pages/pool'
 import { Statistics } from './pages/statistics';
 import { CssBaseline } from '@mui/material';
 import { Login } from './pages/admin/login';
-import DarkMode from './utils/darkMode';
 import Container from '@mui/material/Container';
 import Alerts from './components/Alerts';
 import Backdrop from './components/Backdrop';
+import darkScrollbar from '@mui/material/darkScrollbar';
+
 const darkTheme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body:  darkScrollbar(),
+      },
+    },
+  },
   palette: {
     mode: 'dark',
   },
@@ -39,8 +47,6 @@ function App(props) {
           <Backdrop />
           <Header />
           <Alerts />
-
-          <DarkMode />
           <Container sx={{ flex: "1" }}>
             <Routes >
               <Route path='/' element={<Statistics />} exact />

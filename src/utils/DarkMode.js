@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FormControlLabel } from '@mui/material';
-import { Switch } from '@mui/material';
 import { connect } from 'react-redux';
 import actions from '../reducers/darkMode/actions';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 function DarkMode(props) {
+
     const [darkMode, setDarkMode] = useState(props.darkMode.isDark);
 
     const handleChangeDarkMode = () => {
@@ -14,11 +16,13 @@ function DarkMode(props) {
 
     return (
         <div style={{ justifyContent: "right", textAlign: "right" }}>
-            <FormControlLabel control={
-                <Switch
-                    checked={darkMode}
-                    onChange={handleChangeDarkMode} />}
-                label="Dark Mode" />
+            <FormControlLabel sx={{m:2}} onClick={handleChangeDarkMode} control={
+                <>
+ 
+                    {darkMode?<LightModeIcon/>:<DarkModeIcon />}
+                </>
+            }
+            />
         </div>
     )
 }

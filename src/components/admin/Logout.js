@@ -1,8 +1,7 @@
+import { Typography } from '@mui/material';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-import { Button } from '@mui/material';
 import actions from '../../reducers/user/actions';
-
 function Logout(props) {
 
 
@@ -11,10 +10,9 @@ function Logout(props) {
     const handeLogout= () =>{
         props.clearUser();
             navigate('/');
-        return;
     }
     return (
-        <Button color="secondary" onClick={handeLogout} >Wyloguj</Button>
+        <Typography textAlign="center" onClick={handeLogout} >Wyloguj</Typography>
     )
 }
 
