@@ -2,7 +2,7 @@ import ReactECharts from 'echarts-for-react';
 
 const style = {
   height: "90vh",
-  width: "100%"
+  width: "100%",
 };
 let option = {
 
