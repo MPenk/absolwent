@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { NotFound, Header, Footer } from './layouts';
 import { Admin } from './pages/admin'
 import { Pool } from './pages/pool'
+import { Survey } from './pages/survey'
 import { Statistics } from './pages/statistics';
 import { CssBaseline } from '@mui/material';
 import { Login } from './pages/admin/login';
@@ -53,6 +54,7 @@ function App(props) {
               <Route path='/admin' element={<Admin />} exact />
               <Route path='/admin/login' element={<Login />} exact />
               <Route path='/pool' element={<Pool />} exact />
+              <Route path='/survey' element={<Survey />} exact />
               <Route path='/404' element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" />} />
             </Routes >

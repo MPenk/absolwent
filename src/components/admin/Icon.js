@@ -40,6 +40,9 @@ function Icon(props) {
     const handleAdmin = () => {
         navigate('/admin');
     };
+    const handleSurvey = () => {
+        navigate('/survey');
+    };
 
     return (
         <>
@@ -71,6 +74,9 @@ function Icon(props) {
                     >
                         <MenuItem onClick={handleCloseUserMenu}>
                             <Typography textAlign="center" onClick={handleAdmin}>Panel</Typography>
+                        </MenuItem>
+                        <MenuItem onClick={handleCloseUserMenu}>
+                            <Typography textAlign="center" onClick={handleSurvey}>Przykładowa ankieta</Typography>
                         </MenuItem>
                         <MenuItem onClick={handleCloseUserMenu}>
                             <Logout />
