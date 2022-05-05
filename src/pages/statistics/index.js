@@ -39,19 +39,19 @@ export function Statistics(props) {
             <ListItemIcon>
               <SendIcon />
             </ListItemIcon>
-            <ListItemText primary="Sent mail" />
+            <ListItemText primary="Filtr 1" />
           </ListItemButton>
           <ListItemButton>
             <ListItemIcon>
               <DraftsIcon />
             </ListItemIcon>
-            <ListItemText primary="Drafts" />
+            <ListItemText primary="Filtr 2" />
           </ListItemButton>
           <ListItemButton onClick={handleClick}>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary="Inbox" />
+            <ListItemText primary="Płeć" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
@@ -60,7 +60,13 @@ export function Statistics(props) {
                 <ListItemIcon>
                   <StarBorder />
                 </ListItemIcon>
-                <ListItemText primary="Starred" />
+                <ListItemText primary="MĘŻCZYZNA" />
+              </ListItemButton>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary="KOBIETA" />
               </ListItemButton>
             </List>
           </Collapse>
