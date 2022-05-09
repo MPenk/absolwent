@@ -1,35 +1,35 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { connect } from 'react-redux';
 import FormControl from '@mui/material/FormControl';
-import actions from '../../reducers/user/actions';
 import { TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { execute } from '../../api/connection';
 import { useForm } from 'react-hook-form';
 
-function LoginForm(props) {
+export function RegisterGraduate() {
+
     const [error, setErrorApi] = useState({ exist: false, message: "" });
     const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm();
 
     const onSubmit = async data => {
-        const result = await execute({ path: "/auth/admin", requestMethod: "POST", setError: setErrorApi, data: data });
+        const result = await execute({ path: "/admin/graduate", requestMethod: "POST", setError: setErrorApi, data: data });
         if (result) {
-            props.setUser(result);
             navigate('/admin');
         }
         else {
             setError('email');
-            setError('password');
+            setError('firstName');
+            setError('lastName');
         }
     }
     let navigate = useNavigate();
 
     const isError = (eventError) => {
-        if(eventError)
+        if (eventError)
             return true;
         return error.exist ? true : false
     }
+
     const handleChangeError = () => {
         if (error.exist) {
             setErrorApi({ ...error, exist: false, message: "" });
@@ -40,6 +40,41 @@ function LoginForm(props) {
     return (
         <>
             <FormControl component="form" onSubmit={handleSubmit(onSubmit)}>
+
+                <TextField
+                    error={isError(errors.firstName)}
+                    helperText={errors.firstName ? errors.firstName.message : ""}
+                    margin="normal"
+                    fullWidth
+                    id="firstName"
+                    label="Imie"
+                    name="firstName"
+                    autoComplete="given-name"
+                    autoFocus
+                    {...register("firstName", {
+                        required: "Wymagane",
+                        minLength: { value: 3, message: "Minimalna długość to 3" },
+                        maxLength: { value: 30, message: "Maksymalna długość to 30" },
+                        onChange: () => handleChangeError()
+                    })}
+                />
+                <TextField
+                    error={isError(errors.lastName)}
+                    helperText={errors.lastName ? errors.lastName.message : ""}
+                    margin="normal"
+                    fullWidth
+                    id="lastName"
+                    label="Nazwisko"
+                    name="lastName"
+                    autoComplete="family-name"
+                    autoFocus
+                    {...register("lastName", {
+                        required: "Wymagane",
+                        minLength: { value: 3, message: "Minimalna długość to 3" },
+                        maxLength: { value: 30, message: "Maksymalna długość to 30" },
+                        onChange: () => handleChangeError()
+                    })}
+                />
                 <TextField
                     error={isError(errors.email)}
                     helperText={errors.email ? errors.email.message : ""}
@@ -55,25 +90,9 @@ function LoginForm(props) {
                         minLength: { value: 3, message: "Minimalna długość to 3" },
                         maxLength: { value: 30, message: "Maksymalna długość to 30" },
                         onChange: () => handleChangeError()
+                    })}
+                />
 
-                    })}
-                />
-                <TextField
-                    error={isError(errors.password)}
-                    helperText={errors.password ? errors.password.message : ""}
-                    margin="normal"
-                    fullWidth
-                    name="password"
-                    label="Hasło"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                    {...register("password", {
-                        required: "Wymagane",
-                        minLength: { value: 8, message: "Minimalna długość to 8" },
-                        onChange: () => handleChangeError()
-                    })}
-                />
 
                 <Button
                     type="submit"
@@ -84,15 +103,5 @@ function LoginForm(props) {
                 </Button>
             </FormControl>
         </>
-
     )
-
 }
-
-const mapDispatchToProps = dispatch => ({
-    setUser: (user) => dispatch(actions.set(user))
-})
-const mapStateToProps = state => ({
-    user: state.user
-})
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

@@ -4,10 +4,10 @@ import actions from '../reducers/alerts/actions';
 import { backdropActions as actionBackdrop } from '../reducers/backdrop';
 
 export const execute = async ({path, requestMethod, setError, data, showBackdrop = true}) => {
-    if(setError) setError({ exist: false, message: "" })
+    if(!!setError) setError({ exist: false, message: "" })
     if(showBackdrop) store.dispatch(actionBackdrop.turnOn());
 
-    return await fetch(config.API_URL + path, {
+    var resp =  await fetch(config.API_URL + path, {
         headers: {
             'Accept': '*/*',
             'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export const execute = async ({path, requestMethod, setError, data, showBackdrop
         try {
             err.json().then(response => {
                 store.dispatch(actions.add({ title: "Error", message: response.message, type: "error" }));
-                if(setError) setError({ exist: true, message: response.message })
+                if(!!setError) setError({ exist: true, message: response.message })
             });
             return false;
         } catch (error) {
@@ -33,4 +33,5 @@ export const execute = async ({path, requestMethod, setError, data, showBackdrop
             console.log(error);
         }
     })
+    return resp;
 }
