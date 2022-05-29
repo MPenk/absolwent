@@ -2,7 +2,6 @@ import { Box } from "@mui/system";
 
 
 import { Button,Checkbox } from "@mui/material";
-import ChartWithMenu from "../../components/statistics/professions/ChartWithMenu";
 import { Professions } from "../../components/statistics/professions/Professions";
 import MenuBar from "../../components/statistics/MenuBar";
 
