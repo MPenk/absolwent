@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -11,11 +10,6 @@ import InputLabel from '@mui/material/InputLabel';
 
 import { CustomTextField } from './CustomTextField';
 import { CustomSelect } from './CustomSelect';
-import { CustomSelect2 } from './CustomSelect2';
-import { CustomSelect3 } from './CustomSelect3';
-import { CustomSelect4 } from './CustomSelect4';
-import { CustomSelect5 } from './CustomSelect5';
-import { CustomSelect6 } from './CustomSelect6';
 
 export function SurveyForm() {
     
@@ -34,7 +28,7 @@ export function SurveyForm() {
 
     return (
         <div>
-        <FormControl maxWidth="sm">
+        <FormControl>
             <Typography variant="h6" gutterBottom>
                 Ankieta
             </Typography>
@@ -74,17 +68,17 @@ export function SurveyForm() {
         <br/>
         <FormControl sx={{ m: 1, minWidth: 250 }} required>
             <InputLabel id="demo-simple-select-error-label">Przedział zarobkowy brutto</InputLabel>
-            <CustomSelect nazwa='przedzialZarobkow' isDisabled={czyAktywnyZawodowo} />
+            <CustomSelect dataName='przedzialZarobkow' isDisabled={czyAktywnyZawodowo} />
         </FormControl>
 
         <FormControl sx={{ m: 1, minWidth: 400 }} required>
             <InputLabel id="demo-simple-select-error-label">Wielkość firmy</InputLabel>
-            <CustomSelect2 nazwa="wielkoscFirmy" isDisabled={czyAktywnyZawodowo} />
+            <CustomSelect dataName="wielkoscFirmy" isDisabled={czyAktywnyZawodowo} />
         </FormControl>
 
         <FormControl sx={{ m: 1, minWidth: 300 }} required>
             <InputLabel id="demo-simple-select-error-label">Wielkość miasta</InputLabel>
-        <CustomSelect3 nazwa='wielkoscMiasta' isDisabled={czyAktywnyZawodowo} />
+        <CustomSelect dataName='wielkoscMiasta' isDisabled={czyAktywnyZawodowo} />
         </FormControl>
     
         <br/>
@@ -95,19 +89,19 @@ export function SurveyForm() {
                 aria-labelledby="akt_zawodowa"
                 name="radio-buttons-group"
             >
-                <FormControlLabel value="tak" control={<Radio />} label="Tak" />
-                <FormControlLabel value="nie" control={<Radio />} label="Nie" />
+                <FormControlLabel value="tak" control={<Radio />} label="Tak" disabled={czyAktywnyZawodowo}/>
+                <FormControlLabel value="nie" control={<Radio />} label="Nie" disabled={czyAktywnyZawodowo}/>
             </RadioGroup>
         </FormControl>
 
         <FormControl sx={{ m: 1, minWidth: 300 }} required>
             <InputLabel id="demo-simple-select-error-label">Kategoria firmy</InputLabel>
-        <CustomSelect4 nazwa='wielkoscMiasta' isDisabled={czyAktywnyZawodowo} />
+        <CustomSelect dataName='kategoriaFirmy' isDisabled={czyAktywnyZawodowo} />
         </FormControl>
 
         <FormControl sx={{ m: 1, minWidth: 300 }} required>
             <InputLabel id="demo-simple-select-error-label">Ile czasu zajęło Pani/Panu znalezienie pracy?</InputLabel>
-        <CustomSelect5 nazwa='wielkoscMiasta' isDisabled={czyAktywnyZawodowo} />
+        <CustomSelect dataName='czasSzukaniaPracy' isDisabled={czyAktywnyZawodowo} />
         </FormControl>
 
         <br/>
@@ -118,15 +112,15 @@ export function SurveyForm() {
                 aria-labelledby="akt_zawodowa"
                 name="radio-buttons-group"
             >
-                <FormControlLabel value="tak" control={<Radio />} label="Tak" />
-                <FormControlLabel value="nie" control={<Radio />} label="Nie" />
-                <FormControlLabel value="nie" control={<Radio />} label="Trudno stwierdzić" />
+                <FormControlLabel value="tak" control={<Radio />} label="Tak" disabled={czyAktywnyZawodowo}/>
+                <FormControlLabel value="nie" control={<Radio />} label="Nie" disabled={czyAktywnyZawodowo}/>
+                <FormControlLabel value="trudno_powiedziec" control={<Radio />} label="Trudno stwierdzić" disabled={czyAktywnyZawodowo}/>
             </RadioGroup>
         </FormControl>
 
         <FormControl sx={{ m: 1, minWidth: 300 }} required>
             <InputLabel id="demo-simple-select-error-label">Jaki jest Twój okres zatrudnienia w obecnej firmie?</InputLabel>
-        <CustomSelect6 nazwa='wielkoscMiasta' isDisabled={czyAktywnyZawodowo} />
+        <CustomSelect dataName='stazPracy' isDisabled={czyAktywnyZawodowo} />
         </FormControl>
     </div>
   );
