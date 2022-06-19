@@ -2,7 +2,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 
-const zarobki = {
+const earning = {
     name: "Przedział zarobkowy brutto", 
     values: [
         '3010-4400',
@@ -16,7 +16,7 @@ const zarobki = {
     ]
 };
 
-const wielkoscFirmy = {
+const companySize = {
     name: "Wielkość firmy", 
     values: [
         'Mikroprzedsiębiorstwo (poniżej 10 pracowników)',
@@ -26,7 +26,7 @@ const wielkoscFirmy = {
     ]
 };
 
-const wielkoscMiasta = {
+const townSize = {
     name: "Wielkość miasta", 
     values: [
         'Poniżej 10 000 mieszkańców',
@@ -37,7 +37,7 @@ const wielkoscMiasta = {
     ]
 };
 
-const kategoriaFirmy = {
+const companyCategory = {
     name: "Kategoria firmy", 
     values: [
         'IT',
@@ -53,7 +53,7 @@ const kategoriaFirmy = {
     ]
 };
 
-const czasSzukaniaPracy = {
+const jobSearchTime = {
     name: "Ile czasu zajęło Pani/Panu znalezienie pracy?", 
     values: [
         'Mniej niż 6 miesięcy',
@@ -64,7 +64,7 @@ const czasSzukaniaPracy = {
     ]
 };
 
-const stazPracy = {
+const periodOfEmployment = {
     name: "Jaki jest Twój okres zatrudnienia w obecnej firmie?",
     values: [
         'Mniej niż rok',
@@ -75,42 +75,43 @@ const stazPracy = {
     ]
 };
 
-export function CustomSelect({dataName, isDisabled, ...props }) {
+export function CustomSelect({dataName, isDisabled, handleChangeParent, ...props }) {
 
     var table = {};
-    
+
     switch (dataName) {
-        case "przedzialZarobkow":
-            table = zarobki;
+        case "earnings":
+            table = earning;
             break;
-        case "wielkoscFirmy":
-            table = wielkoscFirmy;
+        case "companySize":
+            table = companySize;
             break;
-        case "wielkoscMiasta":
-            table = wielkoscMiasta;
+        case "townSize":
+            table = townSize;
             break;
-        case "kategoriaFirmy":
-            table = kategoriaFirmy;
+        case "companyCategory":
+            table = companyCategory;
             break;
-        case "czasSzukaniaPracy":
-            table = czasSzukaniaPracy;
+        case "jobSearchTime":
+            table = jobSearchTime;
             break;
-        case "stazPracy":
-            table = stazPracy;
+        case "periodOfEmployment":
+            table = periodOfEmployment;
             break;
     }
 
     const [data, setData] = useState({ collected: table.values, chosen: "" });
     const handleChange = (event) => {
         setData({ ...data, chosen: event.target.value });
+        handleChangeParent(event);
     }
 
     return (
         <Select
             labelId="demo-simple-select-required-label"
-            id="demo-simple-select-required"
             value={data.chosen}
             label={table.name}
+            name={dataName}
             onChange={handleChange}
             disabled={isDisabled}
         >
