@@ -1,19 +1,36 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import { alpha, styled } from '@mui/material/styles';
 
 export function CustomTextField({label, value, ...props}) {
 
+    const ValidationTextField = styled(TextField)({
+        '& input:read-only:hover + fieldset': {
+            borderColor: 'gray',
+        },
+        '& input:read-only + fieldset': {
+            borderColor: 'gray',
+        },
+        '& input:read-only:focus + fieldset': {
+            borderColor: 'gray',
+            borderWidth: 1,
+        },
+        '& label.Mui-focused': {
+            color: 'gray',
+        },
+    });
+
     return(
-    <Grid item xs={6} sm={3}>
-        <TextField
-            margin="normal"
-            fullWidth
-            label={label}
-            value={value}
-            InputProps={{
-                    readOnly: true,
-            }}
-        />
-    </Grid>
+        <Grid item sm={2} minWidth="200px">
+            <ValidationTextField
+                margin="normal"
+                fullWidth
+                label={label}
+                value={value}
+                InputProps={{
+                        readOnly: true,
+                }}
+            />
+        </Grid>
     )
 }

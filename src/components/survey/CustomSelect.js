@@ -1,6 +1,9 @@
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { minWidth } from '@mui/system';
+import Box from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 const earning = {
     name: "Przedział zarobkowy brutto", 
@@ -75,7 +78,7 @@ const periodOfEmployment = {
     ]
 };
 
-export function CustomSelect({dataName, isDisabled, handleChangeParent, ...props }) {
+export function CustomSelect({dataName, isDisabled, handleChangeParent, maxWidth, ...props }) {
 
     var table = {};
 
@@ -107,19 +110,22 @@ export function CustomSelect({dataName, isDisabled, handleChangeParent, ...props
     }
 
     return (
-        <Select
-            labelId="demo-simple-select-required-label"
-            value={data.chosen}
-            label={table.name}
-            name={dataName}
-            onChange={handleChange}
-            disabled={isDisabled}
-        >
-            {data.collected.map((item) => (
-                <MenuItem key={item} value={item}>
-                    {item}
-                </MenuItem>
-            ))}
-        </Select>
+        <Box sx={{ m: 1, width:"100%", maxWidth:"450px"}} required>
+            <InputLabel id="demo-simple-select-error-label">{table.name}</InputLabel>
+            <Select
+                labelId="demo-simple-select-required-label"
+                value={data.chosen}
+                label={table.name}
+                name={dataName}
+                onChange={handleChange}
+                disabled={isDisabled}
+            >
+                {data.collected.map((item) => (
+                    <MenuItem key={item} value={item}>
+                        {item}
+                    </MenuItem>
+                ))}
+            </Select>
+        </Box>
     )
 }
