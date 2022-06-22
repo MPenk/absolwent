@@ -77,9 +77,9 @@ const periodOfEmployment = {
     ]
 };
 
-export function CustomSelect({value, dataName, isDisabled, handleChangeParent, maxWidth, ...props }) {
+export function CustomSelect({value, dataName, isDisabled, handleChangeParent }) {
 
-    var table = {};
+    let table = {};
 
     switch (dataName) {
         case "earnings":
