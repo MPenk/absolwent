@@ -52,8 +52,8 @@ function App(props) {
           <Container sx={{ flex: "1" }}>
             <Routes >
               <Route path='/' element={<Statistics />} exact />
-              <Route path='/admin' element={<Admin />} exact />
               <Route path='/admin/login' element={<Login />} exact />
+              <Route path='/admin/*' element={<Admin />}/>
               <Route path='/pool' element={<Pool />} exact />
               <Route path='/survey' element={<Survey />} exact />
               <Route path='/survey/thanks' element={<SurveyFilled />} exact />
