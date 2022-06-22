@@ -24,7 +24,7 @@ export function AgeGenderChart(props) {
     setCategory([]);
     for (var x in lata) {
       axios
-        .get(endpoint + lata[x],{crossdomain: true} )
+        .get(endpoint + lata[x])
         .then((res) => {
             console.log(res)
           let answear = res.data.data.answers;
