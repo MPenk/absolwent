@@ -2,8 +2,14 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import LoginForm from '../../components/admin/LoginForm';
+import { useNavigate } from 'react-router-dom';
 
 export function Login(_props) {
+
+    let navigate = useNavigate();
+    const handeClickRemindPassword= () =>{
+        navigate('/admin/password');
+    }
     return (
         <>
             <Container component="main" maxWidth="xs">
@@ -17,7 +23,7 @@ export function Login(_props) {
                 >
                     Logowanie
                     <LoginForm/>
-                    <Link href="#" variant="body2">
+                    <Link variant="body2" onClick={handeClickRemindPassword}>
                         Zapomniałeś hasła?
                     </Link>
                 </Box>

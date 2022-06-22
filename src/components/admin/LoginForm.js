@@ -19,7 +19,7 @@ function LoginForm(props) {
             navigate('/admin');
         }
         else {
-            setError('email');
+            setError('login');
             setError('password');
         }
     }
@@ -41,16 +41,16 @@ function LoginForm(props) {
         <>
             <FormControl component="form" onSubmit={handleSubmit(onSubmit)}>
                 <TextField
-                    error={isError(errors.email)}
-                    helperText={errors.email ? errors.email.message : ""}
+                    error={isError(errors.login)}
+                    helperText={errors.login ? errors.login.message : ""}
                     margin="normal"
                     fullWidth
-                    id="email"
-                    label="Email"
-                    name="email"
+                    id="Login"
+                    label="Login"
+                    name="Login"
                     autoComplete="email"
                     autoFocus
-                    {...register("email", {
+                    {...register("login", {
                         required: "Wymagane",
                         minLength: { value: 3, message: "Minimalna długość to 3" },
                         maxLength: { value: 30, message: "Maksymalna długość to 30" },

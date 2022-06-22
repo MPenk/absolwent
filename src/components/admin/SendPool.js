@@ -12,25 +12,17 @@ import Input from '@mui/material/Input';
 import Grid from '@mui/material/Grid';
 import store from '../../store';
 import actions from '../../reducers/alerts/actions';
+import { SendPoolConfirm } from './SendPoolConfirm';
 
 export function SendPool(props) {
     const [value, setValue] = useState(12);
     const [openDialog, setOpenDialog] = useState(false);
 
-    const handleCloseDialog = () => {
-        setOpenDialog(false);
+    const handleOpenDialog = () => {
+        setOpenDialog(true);
     };
     const handleToggleDialog = () => {
         setOpenDialog(!openDialog);
-    };
-
-    const handleSend = async () => {
-        handleToggleDialog();
-        const result = await execute({ path: "/admin/pool", requestMethod: "POST", data: {frequency: value} });
-        if (result) {
-            store.dispatch(actions.add({ title: "Sukces", message: "Wysłano ankiety", type: "success" }));
-            navigate('/admin');
-        }
     };
 
     let navigate = useNavigate();
@@ -52,14 +44,9 @@ export function SendPool(props) {
     };
     return (
         <>
-            <Button variant="outlined" onClick={handleToggleDialog}>
-                Wyślij ankiety
-            </Button>
-            <Dialog onClose={handleCloseDialog} open={openDialog}>
-                <DialogTitle>Ustaw częstotliwość</DialogTitle>
-                <Box sx={{ margin: 3, minWidth: "300px" }}>
+                        <Box sx={{ margin: 3, minWidth: "300px" }}>
                     <Typography id="input-slider" gutterBottom>
-                        Miesiące
+                        Wybierz częstotliwość wysyłania ankiety
                     </Typography>
                     <Grid container spacing={2} alignItems="center">
 
@@ -93,15 +80,11 @@ export function SendPool(props) {
                         </Grid>
                     </Grid>
                 </Box>
-
-                <Box sx={{ margin: 3 }}>
-                    <Container maxWidth="sm">
-                        <Button variant="contained" onClick={handleSend} >
-                            Wyślij ankiety
-                        </Button>
-                    </Container>
-                </Box>
-            </Dialog>
+            <Button variant="outlined" onClick={handleToggleDialog}>
+                Wyślij ankiety
+            </Button>
+            <SendPoolConfirm openDialog={openDialog} setOpenDialog={setOpenDialog} frequency={value}/>
+            
         </>
     )
 
