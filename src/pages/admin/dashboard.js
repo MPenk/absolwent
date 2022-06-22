@@ -1,13 +1,10 @@
 import * as React from "react";
 import Container from "@mui/material/Container";
 import { SendPool } from "../../components/admin/SendPool";
-import { Button } from "@mui/material";
-import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import { RegisterGraduate } from "../../components/admin/RegisterGraduate";
 
@@ -40,7 +37,7 @@ TabPanel.propTypes = {
 export function Dashboard(props) {
   const [value, setValue] = React.useState(props.value);
   let navigate = useNavigate();
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
     switch (newValue) {
       case 0:

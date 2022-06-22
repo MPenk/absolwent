@@ -6,12 +6,13 @@ import { backdropActions as actionBackdrop } from '../reducers/backdrop';
 export const execute = async ({path, requestMethod, setError, data, showBackdrop = true}) => {
     if(!!setError) setError({ exist: false, message: "" })
     if(showBackdrop) store.dispatch(actionBackdrop.turnOn());
+
     let apiUrl = config.API_URL;
-    console.log(process.env);
-    if(process.env.API_URL){
-        apiUrl = process.env.API_URL;
+
+    if(process.env.REACT_APP_API_URL){
+        apiUrl = process.env.REACT_APP_API_URL;
     }
-    var resp =  await fetch(apiUrl + path, {
+    let resp =  await fetch(apiUrl + path, {
         headers: {
             'Accept': '*/*',
             'Content-Type': 'application/json',

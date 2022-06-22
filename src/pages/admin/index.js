@@ -1,11 +1,8 @@
 import AdminRoute from "../../routes/admin"
 import { Dashboard } from "./dashboard"
-import { Routes, Route  } from "react-router-dom";
-import { RegisterGraduate } from "../../components/admin/RegisterGraduate";
+import { Routes, Route ,useLocation } from "react-router-dom";
 import { RequestResetPasswordForm } from "../../components/admin/resetPassword/RequestResetPasswordForm";
 import { WaitingForEmail } from "../../components/admin/resetPassword/WaitingForEmail";
-
-import { useLocation } from "react-router-dom";
 import { ResetPassword } from "../../components/admin/resetPassword/ResetPassword";
 
 export function Admin(_props) {

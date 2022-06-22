@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import actions from '../../reducers/user/actions';
