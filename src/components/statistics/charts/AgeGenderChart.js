@@ -44,7 +44,7 @@ export function AgeGenderChart(props) {
   useEffect(() => {
     setSeriesData(dane.map((seria,i)=>{
         return{
-            name: category[0],
+            name: category[i],
             data: seria,
              emphasis: {
         focus: 'series'
@@ -67,7 +67,6 @@ export function AgeGenderChart(props) {
       },
     },
     legend: {
-        data:category
     },
     toolbox: {
         show: true,
