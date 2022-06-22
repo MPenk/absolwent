@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import Alerts from './components/Alerts';
 import Backdrop from './components/Backdrop';
 import darkScrollbar from '@mui/material/darkScrollbar';
+import { SurveyFilled } from './components/survey/SurveyFilled';
 
 const darkTheme = createTheme({
   components: {
@@ -55,6 +56,7 @@ function App(props) {
               <Route path='/admin/login' element={<Login />} exact />
               <Route path='/pool' element={<Pool />} exact />
               <Route path='/survey' element={<Survey />} exact />
+              <Route path='/survey/thanks' element={<SurveyFilled />} exact />
               <Route path='/404' element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" />} />
             </Routes >

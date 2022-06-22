@@ -1,4 +1,4 @@
-import axios from "axios";
+//import axios from "axios";
 import ReactECharts from "echarts-for-react";
 import { useEffect, useState } from "react";
 
@@ -7,6 +7,7 @@ function numberRange(start, end) {
 }
 
 export function AgeGenderChart(props) {
+  /*
   const [data, setData] = useState(props.dane);
   const kategorie = props.kategoria;
   const keysKategorie = [];
@@ -102,4 +103,5 @@ export function AgeGenderChart(props) {
       <ReactECharts option={option} className="bar-chart" />
     </>
   );
+  */
 }

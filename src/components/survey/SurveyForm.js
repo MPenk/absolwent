@@ -51,7 +51,7 @@ export function SurveyForm() {
         console.log(data)
         const response = await execute({ path: "/survey", requestMethod: "POST", data: {...data, token: searchParams.get("key")} });
         if (response)
-            navigate("/survey/thanks");
+            navigate("/survey/SurveyFilled");
     }
     React.useEffect(() => {
         if (!test) {
@@ -119,7 +119,7 @@ export function SurveyForm() {
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
 
-                    <Box sx={{ m: 3, mx: 5 }}>
+                    <Box sx={{ m: 1, mx: 5 }}>
                         <FormLabel id="akt_zawodowa">Czy pracujesz na terenie Polski?</FormLabel>
                         <RadioGroup
                             row
@@ -131,7 +131,7 @@ export function SurveyForm() {
                             <FormControlLabel value="nie" control={<Radio />} label="Nie" disabled={proffesionalActivity} />
                         </RadioGroup>
                     </Box>
-                    <Box sx={{ m: 3, mx: 5 }}>
+                    <Box sx={{ m: 1, mx: 5 }}>
 
                         <FormLabel id="akt_zawodowa">Czy jest Pani/Pan zadowolona/y ze swojej pracy?</FormLabel>
                         <RadioGroup
@@ -143,6 +143,20 @@ export function SurveyForm() {
                             <FormControlLabel value="tak" control={<Radio />} label="Tak" disabled={proffesionalActivity} />
                             <FormControlLabel value="nie" control={<Radio />} label="Nie" disabled={proffesionalActivity} />
                             <FormControlLabel value="trudno_powiedziec" control={<Radio />} label="Trudno stwierdzić" disabled={proffesionalActivity} />
+                        </RadioGroup>
+                    </Box>
+
+                    <Box sx={{ mb: 3, mx: 5 }}>
+
+                        <FormLabel id="akt_zawodowa">Czy po ukończeniu studiów doszkalał/a się Pan/Pani w zawodzie?</FormLabel>
+                        <RadioGroup
+                            row
+                            aria-labelledby="akt_zawodowa"
+                            name="training"
+                            onChange={handleChange}
+                        >
+                            <FormControlLabel value="tak" control={<Radio />} label="Tak" disabled={proffesionalActivity} />
+                            <FormControlLabel value="nie" control={<Radio />} label="Nie" disabled={proffesionalActivity} />
                         </RadioGroup>
                     </Box>
 
