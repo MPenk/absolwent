@@ -67,7 +67,7 @@ export function AgeGenderChart(props) {
       },
     },
     legend: {
-        data:category[0]
+        data:category
     },
     toolbox: {
         show: true,
