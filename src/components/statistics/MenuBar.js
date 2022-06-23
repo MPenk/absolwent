@@ -10,32 +10,33 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import InputLabel from "@mui/material/InputLabel";
 import { Box } from "@mui/system";
 import { Button, Checkbox, Divider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 
 export default function MenuBar({childToParent}) {
   const wielkoscFirmyTabela = [
     "Mikroprzedsiębiorstwo (poniżej 10 pracowników)",
     "Małe przedsiębiorstwo (poniżej 50 pracowników)",
-    "Średnie przedsiębiorstwo (poniżej 250 pracowników)",
-    "Duże przedsiębiorstwo (powyżej 250 pracowników)",
+    "Średnie przedsiębiorstwo (mniej niż 250 pracowników)",
+    "Duże przedsiębiorstwo (więcej niż 250 pracowników)",
   ];
   const kategoriaFirmyTablica = [
-    "IT",
-    "Mechaniczna",
-    "Nawigacyjna",
+    "Dietetyka",
+    "Edukacja",
+    "Ekonomiczna",
     "Ekonomiczna",
     "Elektroniczna/Elektryczna",
     "Gastronomia",
-    "Dietetyka",
+    "inne",
+    "IT",
     "Marketing",
-    "Edukacja",
-    "inna",
+    "Mechaniczna",
+    "Nawigacyjna"
   ];
   const wielkoscMiastaTabela = [
     "Poniżej 10 000 mieszkańców",
     "Od 10 000 do 50 000 mieszkańców",
-    "Od 50 000 do 100 000 mieszkańców",
+    "Od 50 001 do 100 000 mieszkańców",
     "100 000 do 250 000 mieszkańców",
     "Powyżej 250 000 mieszkańców",
   ];
@@ -108,26 +109,83 @@ export default function MenuBar({childToParent}) {
   const [open4, setOpen4] = useState(false);
   const [open5, setOpen5] = useState(false);
   const [age, setAge] = useState([2000, 2000]);
+  var allowOpen1=true;
+  var allowOpen2=true;
+  var allowOpen3=true;
+  var allowOpen4=true;
+  var allowOpen5=true;
   const data={plec:selectedPlec,kategoria:selectedKategoria,wydzial:selectedWydzial,miasto:selectedWielkoscMiasta,firma:selectedWielkoscFirmy,lata:age,zarobki:valueZarobki};
   const handleChangeAge = (event) => {
     setAge(event.target.value);
   };
   const handleClick1 = () => {
-    setOpen1(!open1);
+    
+      setOpen1(!open1);
+    
   };
+ 
 
   const handleClick2 = () => {
-    setOpen2(!open2);
+    if(allowOpen2){
+      setOpen2(!open2);
+    }
   };
+  useEffect(()=>{
+    if(selectedKategoria.includes(true)||selectedWielkoscMiasta.includes(true)||selectedWielkoscFirmy.includes(true))
+    {
+      setOpen2(false);
+      allowOpen2=false;
+    }
+    else{
+      allowOpen2=true;
+    }
+  },[selectedKategoria,selectedWielkoscMiasta,selectedWielkoscFirmy])
   const handleClick3 = () => {
-    setOpen3(!open3);
+    if(allowOpen3){
+      setOpen3(!open3);
+    }
   };
+  useEffect(()=>{
+    if(selectedWydzial.includes(true)||selectedWielkoscMiasta.includes(true)||selectedWielkoscFirmy.includes(true))
+    {
+      setOpen3(false);
+      allowOpen3=false;
+    }
+    else{
+      allowOpen3=true;
+    }
+  },[selectedWydzial,selectedWielkoscMiasta,selectedWielkoscFirmy])
   const handleClick4 = () => {
-    setOpen4(!open4);
+    if(allowOpen4){
+      setOpen4(!open4);
+    }
   };
+  useEffect(()=>{
+    if(selectedKategoria.includes(true)||selectedWydzial.includes(true)||selectedWielkoscMiasta.includes(true))
+    {
+      setOpen4(false);
+      allowOpen4=false;
+    }
+    else{
+      allowOpen4=true;
+    }
+  },[selectedKategoria,selectedWydzial,selectedWielkoscMiasta])
   const handleClick5 = () => {
-    setOpen5(!open5);
+    if(allowOpen5){
+      setOpen5(!open5);
+    }
   };
+  useEffect(()=>{
+    if(selectedKategoria.includes(true)||selectedWydzial.includes(true)||selectedWielkoscFirmy.includes(true))
+    {
+      setOpen5(false);
+      allowOpen5=false;
+    }
+    else{
+      allowOpen5=true;
+    }
+  },[selectedKategoria,selectedWydzial,selectedWielkoscFirmy])
+  
   const marks = [
     {
       value: 2000,
@@ -177,7 +235,7 @@ export default function MenuBar({childToParent}) {
             marks={marks}
             valueLabelDisplay="on"
           />
-          <InputLabel sx={{ marginTop: "1rem" }}>Przedział zarobków</InputLabel>
+          {/* <InputLabel sx={{ marginTop: "1rem" }}>Przedział zarobków</InputLabel>
           <Slider
             sx={{ width: "80%", marginTop: "3.5rem" }}
             aria-label="Always visible"
@@ -187,18 +245,20 @@ export default function MenuBar({childToParent}) {
             onChange={handleChangeZarobki}
             step={1500}
             valueLabelDisplay="on"
-          />
+          /> */}
           <Divider sx={{ borderBottomWidth: 2 }} />
-          <ListItemButton onClick={handleClick1}>
-            <ListItemText primary="Płeć" />
+          <ListItemButton onClick={handleClick1}  >
+            <ListItemText primary="Płeć"  />
             {open1 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open1} timeout="auto">
-            <List component="div" disablePadding>
+            <List component="div"  >
               {plecTab.map((item, i) => (
                 <FormControlLabel
+
                   sx={{ width: "100%", margin: "auto", pl: 4 }}
-                  control={<Checkbox />}
+                  control={<Checkbox  />}
+                  
                   onChange={(e) => {
                     updateSelectPlec(i);
                   }}
@@ -247,11 +307,11 @@ export default function MenuBar({childToParent}) {
           </Collapse>
           <Divider />
           <Divider sx={{ borderBottomWidth: 2 }} />
-          <ListItemButton onClick={handleClick5}>
+          <ListItemButton onClick={handleClick4}>
             <ListItemText primary="Wielkość Firmy" />
-            {open5 ? <ExpandLess /> : <ExpandMore />}
+            {open4 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <Collapse in={open5} timeout="auto">
+          <Collapse in={open4} timeout="auto">
             <List component="div" disablePadding>
               {wielkoscFirmyTabela.map((item, i) => (
                 <FormControlLabel
@@ -267,11 +327,11 @@ export default function MenuBar({childToParent}) {
           </Collapse>
           <Divider />
           <Divider sx={{ borderBottomWidth: 2 }} />
-          <ListItemButton onClick={handleClick4}>
+          <ListItemButton onClick={handleClick5}>
             <ListItemText primary="Wielkość miasta" />
-            {open4 ? <ExpandLess /> : <ExpandMore />}
+            {open5 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <Collapse in={open4} timeout="auto">
+          <Collapse in={open5} timeout="auto">
             <List component="div" disablePadding>
               {wielkoscMiastaTabela.map((item, i) => (
                 <FormControlLabel

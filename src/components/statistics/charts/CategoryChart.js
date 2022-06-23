@@ -6,7 +6,7 @@ function numberRange(start, end) {
   return new Array(end - start).fill().map((d, i) => i + start);
 }
 
-export function AgeGenderChart(props) {
+export function CategoryChart(props) {
   const [data, setData] = useState(props.dane);
   const kategorie = props.kategoria;
   const keysKategorie = [];
@@ -14,9 +14,16 @@ export function AgeGenderChart(props) {
   const [dane, setDane] = useState([]);
   const [category, setCategory] = useState([]);
   const [ans, setAns] = useState([]);
-  
+  console.log(kategorie);
+  let checkKategorie=[];
+  for(var x in props.dane.kategoria){
+    if(props.dane.kategoria[x]){
+        checkKategorie.push(kategorie.kategoria[x]);
+    }
+  }
+  console.log(checkKategorie);
   var endpoint =
-    "https://absolwent.azurewebsites.net/api/public/statistics/salary/";
+    "https://absolwent.azurewebsites.net/api/public/statistics/companycategory/";
   const lata = numberRange(props.dane.lata[0], props.dane.lata[1] + 1);
   useEffect(() => {
     setAns([]);
@@ -43,6 +50,7 @@ export function AgeGenderChart(props) {
   useEffect(() => {
     
     setSeriesData(dane.map((seria,i)=>{
+
         return{
             name: category[i][i],
             data: seria,

@@ -8,30 +8,33 @@ import { GradFacultyToBusinessSize } from "../../components/statistics/charts/Gr
 import { useEffect, useState } from "react";
 import { ChartCommon } from "../../components/statistics/charts/ChartCommon";
 import { AgeGenderChart } from "../../components/statistics/charts/AgeGenderChart";
+import { CategoryChart } from "../../components/statistics/charts/CategoryChart";
+import { TownSizeChart } from "../../components/statistics/charts/TownSizeChart";
 export function Statistics(props) {
 
   const wielkoscFirmyTabela = [
     "Mikroprzedsiębiorstwo (poniżej 10 pracowników)",
     "Małe przedsiębiorstwo (poniżej 50 pracowników)",
-    "Średnie przedsiębiorstwo (poniżej 250 pracowników)",
-    "Duże przedsiębiorstwo (powyżej 250 pracowników)",
+    "Średnie przedsiębiorstwo (mniej niż 250 pracowników)",
+    "Duże przedsiębiorstwo (więcej niż 250 pracowników)",
   ];
   const kategoriaFirmyTablica = [
-    "IT",
-    "Mechaniczna",
-    "Nawigacyjna",
+    "Dietetyka",
+    "Edukacja",
+    "Ekonomiczna",
     "Ekonomiczna",
     "Elektroniczna/Elektryczna",
     "Gastronomia",
-    "Dietetyka",
+    "inne",
+    "IT",
     "Marketing",
-    "Edukacja",
-    "inna",
+    "Mechaniczna",
+    "Nawigacyjna"
   ];
   const wielkoscMiastaTabela = [
     "Poniżej 10 000 mieszkańców",
     "Od 10 000 do 50 000 mieszkańców",
-    "Od 50 000 do 100 000 mieszkańców",
+    "Od 50 001 do 100 000 mieszkańców",
     "100 000 do 250 000 mieszkańców",
     "Powyżej 250 000 mieszkańców",
   ];
@@ -43,18 +46,33 @@ export function Statistics(props) {
     setData(childdata)
   }
   let wykres;
-  useEffect(()=>{console.log(data)})
+  let tekst;
+
   if(data==='')
   {
     wykres=<h1>Wybierz jakieś kryteria</h1>;
   }
-  else if(data.plec[0] || data.plec[1])
-  {
+  else if(!data.kategoria.includes(true)&&!data.wydzial.includes(true)&&data.miasto.includes(true)&&!data.firma.includes(true)){
+    tekst ="Ludzie w miastach o danej wielkości"
+    wykres=<TownSizeChart dane={data} kategoria={kategorie}/>
+  }
+  else if(data.kategoria.includes(true)&&!data.wydzial.includes(true)&&!data.miasto.includes(true)&&!data.firma.includes(true)){
+    tekst ="Ludzie w danym przedziale zarobkowym z daną kategorią"
+    wykres=<CategoryChart dane={data} kategoria={kategorie}/>
+  }
+  else if(!data.kategoria.includes(true)&&!data.wydzial.includes(true)&&!data.miasto.includes(true)&&!data.firma.includes(true)){
+    tekst ="Ludzie w danym przedziale zarobkowym"
     wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>
   }
-  else{
-    wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>;
+
+  else if(!data.plec.includes(true)||!data.kategoria.includes(true)||!data.wydzial.includes(true)||!data.miasto.includes(true)||!data.firma.includes(true))
+  {
+    tekst ="Ludzie w danym przedziale zarobkowym"
+    wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>
   }
+  // else{
+  //   wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>;
+  // }
   return (
     <>
       <Box sx={{ width: "100%", height: "auto", display: "flex" }}>
@@ -64,6 +82,7 @@ export function Statistics(props) {
         </Box> */}
         
         <Box sx={{ width: "auto", float: "left", flexGrow: 1 }}>
+        <h1>{tekst}</h1>
           {wykres}
         </Box>
       </Box>
