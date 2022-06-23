@@ -7,6 +7,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
 import { RegisterGraduate } from "../../components/admin/RegisterGraduate";
+import { SendPoolNow } from "../../components/admin/SendPoolNow";
+import { GraduateList } from "../../components/admin/GraduateList";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -19,11 +21,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -46,6 +44,12 @@ export function Dashboard(props) {
       case 1:
         navigate("/admin/suvery/send");
         break;
+      case 2:
+        navigate("/admin/suvery/send/now");
+        break;
+      case 3:
+        navigate("/admin/graduate/list");
+        break;
     }
   };
 
@@ -67,6 +71,14 @@ export function Dashboard(props) {
           >
             <Tab label="Rejestracja nowego absolwenta" {...a11yProps(0)} />
             <Tab label="Wysyłanie ankiety" {...a11yProps(1)} />
+            {process.env.REACT_APP_API_URL ==
+              "https://absolwent.azurewebsites.net/api" && (
+              <Tab label="[DEV] Wysyłanie ankiety" {...a11yProps(2)} />
+            )}
+            {process.env.REACT_APP_API_URL ==
+              "https://absolwent.azurewebsites.net/api" && (
+              <Tab label="[DEV] Lista Absolwentów" {...a11yProps(3)} />
+            )}
           </Tabs>
           <TabPanel value={value} index={0}>
             <RegisterGraduate />
@@ -74,6 +86,18 @@ export function Dashboard(props) {
           <TabPanel value={value} index={1}>
             <SendPool />
           </TabPanel>
+          {process.env.REACT_APP_API_URL ==
+            "https://absolwent.azurewebsites.net/api" && (
+            <TabPanel value={value} index={2}>
+              <SendPoolNow />
+            </TabPanel>
+          )}
+          {process.env.REACT_APP_API_URL ==
+            "https://absolwent.azurewebsites.net/api" && (
+            <TabPanel value={value} index={3}>
+              <GraduateList />
+            </TabPanel>
+          )}
         </Box>
       </Container>
     </>
