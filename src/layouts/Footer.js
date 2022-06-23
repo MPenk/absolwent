@@ -8,7 +8,6 @@ export function Footer(_props) {
         <footer className="App-footer">
             <Box
                 px={{ xs: 1, sm: 3 }}
-                py={{ xs: 2, sm: 4 }}
                 bgcolor="text.secondary"
                 color="backgraund.secondary"
             >

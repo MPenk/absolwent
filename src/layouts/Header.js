@@ -35,7 +35,7 @@ export default function Header(_props) {
         <header className="App-header">
             <AppBar position="static">
                 <Toolbar disableGutters>
-                    <Box sx={{ m:3 }}>
+                    <Box sx={{ ml:3 }}>
 
                         <Typography
                             variant="h6"
@@ -43,7 +43,7 @@ export default function Header(_props) {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }}
                         >
-                            <img alt='Logo' onClick={() => { handleRedirect('/') }} src={Logo} />
+                            <img alt='Logo' style={{maxWidth:"52px", width:"100%"}} onClick={() => { handleRedirect('/') }} src={Logo} />
                         </Typography>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

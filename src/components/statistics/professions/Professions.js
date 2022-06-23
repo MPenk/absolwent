@@ -2,7 +2,7 @@ import ReactECharts from 'echarts-for-react';
 
 const style = {
   height: "90vh",
-  width: "100%"
+  width: "100%",
 };
 let option = {
 
@@ -44,7 +44,7 @@ let option = {
         show: false
       },
       data: [
-        { value: 33, name: 'Bezrobotny' },
+        { value: 33, name: 'McDonalds' },
         { value: 4, name: 'Programista' },
         { value: 4, name: 'Analityk' },
         { value: 2, name: 'Sprzedawca frytek' },

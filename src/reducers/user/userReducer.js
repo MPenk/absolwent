@@ -3,7 +3,7 @@ import types from "./types"
 const INITIAL_STATE = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : {
     isLogged: false,
     id: null,
-    email: null,
+    login: null,
     token: null
 }
 
@@ -15,14 +15,14 @@ const userReducer = (state = INITIAL_STATE, action = null) => {
                 ...state,
                 isLogged: true,
                 id: action.id,
-                email: action.email,
+                login: action.login,
                 token: action.token
             }
         case types.CLEAR_USER:
             return {
                 isLogged: false,
                 id: null,
-                email: null,
+                login: null,
                 token: null
             }
         default:
