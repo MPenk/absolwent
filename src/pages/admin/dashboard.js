@@ -61,13 +61,14 @@ export function Dashboard(props) {
   }
   return (
     <>
-      <Container maxWidth="sm">
-        <Box sx={{ width: 500 }}>
+      <Container maxWidth="s">
+        <Box sx={{ width: "100%" }}>
           <Tabs
             value={value}
             onChange={handleChange}
             textColor="inherit"
-            variant="fullWidth"
+            variant="scrollable"
+          allowScrollButtonsMobile
           >
             <Tab label="Rejestracja nowego absolwenta" {...a11yProps(0)} />
             <Tab label="Wysyłanie ankiety" {...a11yProps(1)} />
@@ -80,6 +81,7 @@ export function Dashboard(props) {
               <Tab label="[DEV] Lista Absolwentów" {...a11yProps(3)} />
             )}
           </Tabs>
+          <Container maxWidth="sm">
           <TabPanel value={value} index={0}>
             <RegisterGraduate />
           </TabPanel>
@@ -98,6 +100,7 @@ export function Dashboard(props) {
               <GraduateList />
             </TabPanel>
           )}
+          </Container>
         </Box>
       </Container>
     </>
