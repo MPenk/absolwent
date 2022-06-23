@@ -50,7 +50,7 @@
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Public&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fpublic%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Public)
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Auth&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fauth%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Auth)
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Admin&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fadmin%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Admin)
-[![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Pool&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fsurvey%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Survey)
+[![Swagger Validator](https://img.shields.io/swagger/valid/3.0?label=API%20Survey&specUrl=https%3A%2F%2Fabsolwent.azurewebsites.net%2Fswagger%2Fsurvey%2Fswagger.json)](https://absolwent.azurewebsites.net/swagger/index.html?urls.primaryName=Survey)
 
 <br>
 
