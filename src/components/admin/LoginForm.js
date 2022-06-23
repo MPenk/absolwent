@@ -70,7 +70,6 @@ function LoginForm(props) {
                     autoComplete="current-password"
                     {...register("password", {
                         required: "Wymagane",
-                        minLength: { value: 8, message: "Minimalna długość to 8" },
                         onChange: () => handleChangeError()
                     })}
                 />
