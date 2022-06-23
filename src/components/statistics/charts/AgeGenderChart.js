@@ -1,4 +1,5 @@
-//import axios from "axios";
+import config from '../../../config.json';
+import axios from "axios";
 import ReactECharts from "echarts-for-react";
 import { useEffect, useState } from "react";
 
@@ -7,7 +8,7 @@ function numberRange(start, end) {
 }
 
 export function AgeGenderChart(props) {
-  /*
+  
   const [data, setData] = useState(props.dane);
   const kategorie = props.kategoria;
   const keysKategorie = [];
@@ -15,9 +16,13 @@ export function AgeGenderChart(props) {
   const [dane, setDane] = useState([]);
   const [category, setCategory] = useState([]);
   const [ans, setAns] = useState([]);
-  
+  let apiUrl = config.API_URL;
+
+  if(process.env.REACT_APP_API_URL){
+      apiUrl = process.env.REACT_APP_API_URL;
+  }
   var endpoint =
-    "https://absolwent.azurewebsites.net/api/public/statistics/salary/";
+    apiUrl+"/public/statistics/salary/";
   const lata = numberRange(props.dane.lata[0], props.dane.lata[1] + 1);
   useEffect(() => {
     setAns([]);
@@ -108,5 +113,5 @@ export function AgeGenderChart(props) {
       {wykres}
     </>
   );
-  */
+  
 }

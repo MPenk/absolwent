@@ -1,3 +1,4 @@
+import config from '../../../config.json';
 import axios from "axios";
 import ReactECharts from "echarts-for-react";
 import { useEffect, useState } from "react";
@@ -22,8 +23,13 @@ export function CategoryChart(props) {
     }
   }
   console.log(checkKategorie);
+  let apiUrl = config.API_URL;
+
+  if(process.env.REACT_APP_API_URL){
+      apiUrl = process.env.REACT_APP_API_URL;
+  }
   var endpoint =
-    "https://absolwent.azurewebsites.net/api/public/statistics/companycategory/";
+    apiUrl+"/public/statistics/companycategory/";
   const lata = numberRange(props.dane.lata[0], props.dane.lata[1] + 1);
   useEffect(() => {
     setAns([]);

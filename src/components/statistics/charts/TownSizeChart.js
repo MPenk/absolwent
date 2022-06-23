@@ -1,5 +1,6 @@
 import axios from "axios";
 import ReactECharts from "echarts-for-react";
+import config from '../../../config.json';
 import { useEffect, useState } from "react";
 
 function numberRange(start, end) {
@@ -21,8 +22,13 @@ export function TownSizeChart(props) {
         checkKategorie.push(kategorie.miasto[x]);
     }
   }
+  let apiUrl = config.API_URL;
+
+  if(process.env.REACT_APP_API_URL){
+      apiUrl = process.env.REACT_APP_API_URL;
+  }
   var endpoint =
-    "https://absolwent.azurewebsites.net/api/public/statistics/townsize/";
+    apiUrl+"/public/statistics/townsize/";
   const lata = numberRange(props.dane.lata[0], props.dane.lata[1] + 1);
   useEffect(() => {
     setAns([]);
