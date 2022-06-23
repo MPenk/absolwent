@@ -56,9 +56,6 @@
 
 
 # Użyte Biblioteki
-~~[react-chartjs-2](https://www.npmjs.com/package/react-chartjs-2)~~ 
-> **Note:** Nie działa budowanie na Azure
-
 [Redux](https://www.npmjs.com/package/redux)
 [Redux Thunk](https://www.npmjs.com/package/redux-thunk)
 [Redux DevTools Extension](https://www.npmjs.com/package/redux-devtools-extension)
