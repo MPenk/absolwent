@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 
 function LoginForm(props) {
     const [error, setErrorApi] = useState({ exist: false, message: "" });
-    const { register, handleSubmit, formState: { errors }, setError } = useForm();
+    const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm();
 
     const onSubmit = async data => {
         const result = await execute({ path: "/auth/admin", requestMethod: "POST", setError: setErrorApi, data: data });
@@ -19,7 +19,7 @@ function LoginForm(props) {
             navigate('/admin');
         }
         else {
-            setError('email');
+            setError('login');
             setError('password');
         }
     }
@@ -30,26 +30,32 @@ function LoginForm(props) {
             return true;
         return error.exist ? true : false
     }
-
+    const handleChangeError = () => {
+        if (error.exist) {
+            setErrorApi({ ...error, exist: false, message: "" });
+            clearErrors();
+        }
+    }
 
     return (
         <>
             <FormControl component="form" onSubmit={handleSubmit(onSubmit)}>
                 <TextField
-                    onChange={error.exist&&setErrorApi({...error, exist:false, message:""})}
-                    error={isError(errors.email)}
-                    helperText={errors.email ? errors.email.message : ""}
+                    error={isError(errors.login)}
+                    helperText={errors.login ? errors.login.message : ""}
                     margin="normal"
                     fullWidth
-                    id="email"
-                    label="Email"
-                    name="email"
+                    id="Login"
+                    label="Login"
+                    name="Login"
                     autoComplete="email"
                     autoFocus
-                    {...register("email", {
+                    {...register("login", {
                         required: "Wymagane",
                         minLength: { value: 3, message: "Minimalna długość to 3" },
-                        maxLength: { value: 30, message: "Maksymalna długość to 30" }
+                        maxLength: { value: 30, message: "Maksymalna długość to 30" },
+                        onChange: () => handleChangeError()
+
                     })}
                 />
                 <TextField
@@ -62,10 +68,10 @@ function LoginForm(props) {
                     type="password"
                     id="password"
                     autoComplete="current-password"
-                    onChange={error.exist&&setErrorApi({...error, exist:false, message:""})}
                     {...register("password", {
                         required: "Wymagane",
                         minLength: { value: 8, message: "Minimalna długość to 8" },
+                        onChange: () => handleChangeError()
                     })}
                 />
 

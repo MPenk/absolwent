@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import { alpha, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
-export function CustomTextField({label, value, ...props}) {
+export function CustomTextField({label, value}) {
 
     const ValidationTextField = styled(TextField)({
         '& input:read-only:hover + fieldset': {

@@ -1,7 +1,6 @@
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
-import { minWidth } from '@mui/system';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 
@@ -78,9 +77,9 @@ const periodOfEmployment = {
     ]
 };
 
-export function CustomSelect({dataName, isDisabled, handleChangeParent, maxWidth, ...props }) {
+export function CustomSelect({value, dataName, isDisabled, handleChangeParent }) {
 
-    var table = {};
+    let table = {};
 
     switch (dataName) {
         case "earnings":
@@ -108,7 +107,11 @@ export function CustomSelect({dataName, isDisabled, handleChangeParent, maxWidth
         setData({ ...data, chosen: event.target.value });
         handleChangeParent(event);
     }
-
+    
+    useEffect(() => {
+        setData({ ...data, chosen: "" });
+    }, [value])
+    
     return (
         <Box sx={{ m: 1, width:"100%", maxWidth:"450px"}} required>
             <InputLabel id="demo-simple-select-error-label">{table.name}</InputLabel>

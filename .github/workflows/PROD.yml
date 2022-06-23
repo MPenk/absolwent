@@ -30,6 +30,7 @@ jobs:
     name: Build and Deploy Job
     env:
       CI: false
+      REACT_APP_API_URL: 'https://api-absolwent.azurewebsites.net/api'
     steps:
       - uses: actions/checkout@v2
         with:
