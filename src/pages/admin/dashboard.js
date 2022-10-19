@@ -73,11 +73,11 @@ export function Dashboard(props) {
             <Tab label="Rejestracja nowego absolwenta" {...a11yProps(0)} />
             <Tab label="Wysyłanie ankiety" {...a11yProps(1)} />
             {process.env.REACT_APP_API_URL ==
-              "https://absolwent.azurewebsites.net/api" && (
+              "https://test.absolwent.best/api" && (
               <Tab label="[DEV] Wysyłanie ankiety" {...a11yProps(2)} />
             )}
             {process.env.REACT_APP_API_URL ==
-              "https://absolwent.azurewebsites.net/api" && (
+              "https://test.absolwent.best/api" && (
               <Tab label="[DEV] Lista Absolwentów" {...a11yProps(3)} />
             )}
           </Tabs>
