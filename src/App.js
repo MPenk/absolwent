@@ -15,6 +15,7 @@ import Alerts from './components/Alerts';
 import Backdrop from './components/Backdrop';
 import darkScrollbar from '@mui/material/darkScrollbar';
 import { SurveyFilled } from './components/survey/SurveyFilled';
+import SettingsForm from './utils/SettingsForm';
 
 const darkTheme = createTheme({
   components: {
@@ -47,6 +48,7 @@ function App(props) {
         <CssBaseline />
         <div data-theme={isDarkTheme ? 'dark' : 'light'} className='App'>
           <Backdrop />
+          <SettingsForm/>
           <Header />
           <Alerts />
           <Container sx={{ flex: "1" }}>
