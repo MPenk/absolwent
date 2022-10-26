@@ -1,3 +1,4 @@
 {
-    "API_URL": "https://absolwent.azurewebsites.net/api"
+    "API_URL": "https://localhost:3001/api",
+    "ENV": "Dev"
 }

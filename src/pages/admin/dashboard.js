@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { RegisterGraduate } from "../../components/admin/RegisterGraduate";
 import { SendPoolNow } from "../../components/admin/SendPoolNow";
 import { GraduateList } from "../../components/admin/GraduateList";
+import { ENV } from "../../utils/config";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -68,38 +69,34 @@ export function Dashboard(props) {
             onChange={handleChange}
             textColor="inherit"
             variant="scrollable"
-          allowScrollButtonsMobile
+            allowScrollButtonsMobile
           >
             <Tab label="Rejestracja nowego absolwenta" {...a11yProps(0)} />
             <Tab label="Wysyłanie ankiety" {...a11yProps(1)} />
-            {process.env.REACT_APP_API_URL ==
-              "https://test.absolwent.best/api" && (
+            {ENV != "Prod" && (
               <Tab label="[DEV] Wysyłanie ankiety" {...a11yProps(2)} />
             )}
-            {process.env.REACT_APP_API_URL ==
-              "https://test.absolwent.best/api" && (
+            {ENV != "Prod" && (
               <Tab label="[DEV] Lista Absolwentów" {...a11yProps(3)} />
             )}
           </Tabs>
           <Container maxWidth="sm">
-          <TabPanel value={value} index={0}>
-            <RegisterGraduate />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <SendPool />
-          </TabPanel>
-          {process.env.REACT_APP_API_URL ==
-            "https://absolwent.azurewebsites.net/api" && (
-            <TabPanel value={value} index={2}>
-              <SendPoolNow />
+            <TabPanel value={value} index={0}>
+              <RegisterGraduate />
             </TabPanel>
-          )}
-          {process.env.REACT_APP_API_URL ==
-            "https://absolwent.azurewebsites.net/api" && (
-            <TabPanel value={value} index={3}>
-              <GraduateList />
+            <TabPanel value={value} index={1}>
+              <SendPool />
             </TabPanel>
-          )}
+            {ENV != "Prod" && (
+              <TabPanel value={value} index={2}>
+                <SendPoolNow />
+              </TabPanel>
+            )}
+            {ENV != "Prod" && (
+              <TabPanel value={value} index={3}>
+                <GraduateList />
+              </TabPanel>
+            )}
           </Container>
         </Box>
       </Container>

@@ -1,17 +1,12 @@
-name: PROD
+name: TEST
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
-
+      - test
 jobs:
   sonarcloud:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
@@ -38,8 +33,8 @@ jobs:
       env:
         CI_TOKEN: ${{ secrets.CI_TOKEN }}
         PARENT_REPO: UMG-INF-2019-2020/Absolwent
-        PARENT_BRANCH: main
-        WORKFLOW_ID: 37923392
+        PARENT_BRANCH: test
+        WORKFLOW_ID: 37923393
       run: |
         curl -fL --retry 3 -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${{ env.CI_TOKEN }}" https://api.github.com/repos/${{ env.PARENT_REPO }}/actions/workflows/${{ env.WORKFLOW_ID }}/dispatches -d '{"ref":"${{ env.PARENT_BRANCH }}"}'
 
