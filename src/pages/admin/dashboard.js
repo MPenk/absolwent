@@ -72,12 +72,12 @@ export function Dashboard(props) {
           >
             <Tab label="Rejestracja nowego absolwenta" {...a11yProps(0)} />
             <Tab label="Wysyłanie ankiety" {...a11yProps(1)} />
-            {process.env.REACT_APP_API_URL ==
-              "https://test.absolwent.best/api" && (
+            {process.env.REACT_APP_ENVIRONMENT ==
+              "Test" && (
               <Tab label="[DEV] Wysyłanie ankiety" {...a11yProps(2)} />
             )}
-            {process.env.REACT_APP_API_URL ==
-              "https://test.absolwent.best/api" && (
+            {process.env.REACT_APP_ENVIRONMENT ==
+              "Test" && (
               <Tab label="[DEV] Lista Absolwentów" {...a11yProps(3)} />
             )}
           </Tabs>
@@ -88,14 +88,14 @@ export function Dashboard(props) {
           <TabPanel value={value} index={1}>
             <SendPool />
           </TabPanel>
-          {process.env.REACT_APP_API_URL ==
-            "https://absolwent.azurewebsites.net/api" && (
+          {process.env.REACT_APP_ENVIRONMENT ==
+            "Test" && (
             <TabPanel value={value} index={2}>
               <SendPoolNow />
             </TabPanel>
           )}
-          {process.env.REACT_APP_API_URL ==
-            "https://absolwent.azurewebsites.net/api" && (
+          {process.env.REACT_APP_ENVIRONMENT ==
+            "Test" && (
             <TabPanel value={value} index={3}>
               <GraduateList />
             </TabPanel>
