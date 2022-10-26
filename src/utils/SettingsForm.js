@@ -37,7 +37,7 @@ function SettingsForm() {
     }
     return (
         <>
-            {isProd() != "Prod" && (
+            {!isProd() && (
                 <>
                     <FormControlLabel sx={{ m: 2, position: "fixed", bottom: "30px", right: "30px" }} onClick={handleOpenDialog} control={
                         <>
