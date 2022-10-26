@@ -61,6 +61,7 @@ export function Dashboard(props) {
   }
   return (
     <>
+    <p>{process.env.REACT_APP_ENVIRONMENT}</p>
       <Container maxWidth="s">
         <Box sx={{ width: "100%" }}>
           <Tabs
