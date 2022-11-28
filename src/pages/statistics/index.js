@@ -1,91 +1,92 @@
-import { Box } from "@mui/system";
+import { Button, ButtonGroup } from "@mui/material";
+import { useState } from "react";
 
-
-import { Button,Checkbox } from "@mui/material";
-import { Professions } from "../../components/statistics/professions/Professions";
-import MenuBar from "../../components/statistics/MenuBar";
-import { GradFacultyToBusinessSize } from "../../components/statistics/charts/GradFacultyToBusinessSize";
-import { useEffect, useState } from "react";
-import { ChartCommon } from "../../components/statistics/charts/ChartCommon";
-import { AgeGenderChart } from "../../components/statistics/charts/AgeGenderChart";
-import { CategoryChart } from "../../components/statistics/charts/CategoryChart";
-import { TownSizeChart } from "../../components/statistics/charts/TownSizeChart";
+import WiekCharts from "./components/WiekCharts";
 export function Statistics(props) {
+  const [data,setData]=useState([
+    {
+      "name": "Page A",
+      "uv": 4000,
+      "pv": 2400
+    },
+    {
+      "name": "Page B",
+      "uv": 3000,
+      "pv": 1398
+    },
+    {
+      "name": "Page C",
+      "uv": 2000,
+      "pv": 9800
+    },
+    {
+      "name": "Page D",
+      "uv": 2780,
+      "pv": 3908
+    },
+    {
+      "name": "Page E",
+      "uv": 1890,
+      "pv": 4800
+    },
+    {
+      "name": "Page F",
+      "uv": 2390,
+      "pv": 3800
+    },
+    {
+      "name": "Page G",
+      "uv": 3490,
+      "pv": 4300
+    }
+  ]);
+  const showPlec=()=>{
+    console.log("showplec");
+    fetch("https://absolwent.best/api/data/sex").then((res)=>res.json()).then((res)=>{setData(res);
+    console.log(res);
+    var resData=[];
+    console.log(res.data.length)
+    Object.keys(res.data).forEach((key)=>{
+      console.log(key);
+      Object.keys(res.data.Men.earnings).forEach((key1)=>{
+        resData.push({
+          "name":key1,
+          "uv":20,
+          "pv":30
+        })
 
-  const wielkoscFirmyTabela = [
-    "Mikroprzedsiębiorstwo (poniżej 10 pracowników)",
-    "Małe przedsiębiorstwo (poniżej 50 pracowników)",
-    "Średnie przedsiębiorstwo (mniej niż 250 pracowników)",
-    "Duże przedsiębiorstwo (więcej niż 250 pracowników)",
-  ];
-  const kategoriaFirmyTablica = [
-    "Dietetyka",
-    "Edukacja",
-    "Ekonomiczna",
-    "Ekonomiczna",
-    "Elektroniczna/Elektryczna",
-    "Gastronomia",
-    "inne",
-    "IT",
-    "Marketing",
-    "Mechaniczna",
-    "Nawigacyjna"
-  ];
-  const wielkoscMiastaTabela = [
-    "Poniżej 10 000 mieszkańców",
-    "Od 10 000 do 50 000 mieszkańców",
-    "Od 50 001 do 100 000 mieszkańców",
-    "100 000 do 250 000 mieszkańców",
-    "Powyżej 250 000 mieszkańców",
-  ];
-  const wydzialTablica = ["Elektryczny", "Mechaniczny", "Nawigacyjny", "PiT"];
-  const plecTab = ["Kobieta", "Mężczyzna"];
-  const kategorie= {plec:plecTab,kategoria:kategoriaFirmyTablica,wydzial:wydzialTablica,miasto:wielkoscMiastaTabela,firma:wielkoscFirmyTabela};
-  const [data,setData]=useState('');
-  const childToParent=(childdata)=>{
-    setData(childdata)
-  }
-  let wykres;
-  let tekst;
+      })
+      setData(resData);
 
-  if(data==='')
-  {
-    wykres=<h1>Wybierz jakieś kryteria</h1>;
+    })
+    
+});
+    
   }
-  else if(!data.kategoria.includes(true)&&!data.wydzial.includes(true)&&data.miasto.includes(true)&&!data.firma.includes(true)){
-    tekst ="Ludzie w miastach o danej wielkości"
-    wykres=<TownSizeChart dane={data} kategoria={kategorie}/>
-  }
-  else if(data.kategoria.includes(true)&&!data.wydzial.includes(true)&&!data.miasto.includes(true)&&!data.firma.includes(true)){
-    tekst ="Ludzie w danym przedziale zarobkowym z daną kategorią"
-    wykres=<CategoryChart dane={data} kategoria={kategorie}/>
-  }
-  else if(!data.kategoria.includes(true)&&!data.wydzial.includes(true)&&!data.miasto.includes(true)&&!data.firma.includes(true)){
-    tekst ="Ludzie w danym przedziale zarobkowym"
-    wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>
-  }
+  
+  const showWiek=()=>{
+    console.log("showWiek");
+    fetch("https://absolwent.best/api/data/year").then((res)=>res.json()).then((res)=>console.log(res));
 
-  else if(!data.plec.includes(true)||!data.kategoria.includes(true)||!data.wydzial.includes(true)||!data.miasto.includes(true)||!data.firma.includes(true))
-  {
-    tekst ="Ludzie w danym przedziale zarobkowym"
-    wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>
   }
-  // else{
-  //   wykres=<AgeGenderChart dane={data}  kategoria={kategorie}/>;
-  // }
-  return (
-    <>
-      <Box sx={{ width: "100%", height: "auto", display: "flex" }}>
-       <MenuBar childToParent={childToParent}/>
-        {/* <Box sx={{ width: "auto", float: "left", flexGrow: 1 }}>
-          <Professions />
-        </Box> */}
-        
-        <Box sx={{ width: "auto", float: "left", flexGrow: 1 }}>
-        <h1>{tekst}</h1>
-          {wykres}
-        </Box>
-      </Box>
-    </>
-  );
+  const showWydzial=()=>{
+    console.log("showWydzial");
+    fetch("https://absolwent.best/api/data/faculty").then((res)=>res.json()).then((res)=>console.log(res));
+
+  }
+  const showZarobki=()=>{
+    console.log("showZarobki");
+    fetch("https://absolwent.best/api/data/earnings").then((res)=>res.json()).then((res)=>console.log(res));
+
+  }
+  return(<div>
+<ButtonGroup size="large">
+  <Button onClick={showPlec} >Płeć</Button>
+  <Button onClick={showWiek}>Wiek</Button>
+  <Button onClick={showWydzial}>Wydział</Button>
+  <Button onClick={showZarobki}>Zarobki</Button>
+  </ButtonGroup>
+  <WiekCharts data={data}></WiekCharts>
+
+  </div>);
 }
