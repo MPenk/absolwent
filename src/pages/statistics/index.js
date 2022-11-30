@@ -1,92 +1,202 @@
 import { Button, ButtonGroup } from "@mui/material";
 import { useState } from "react";
-
+import SexCharts from "./components/SexCharts";
 import WiekCharts from "./components/WiekCharts";
+
 export function Statistics(props) {
-  const [data,setData]=useState([
-    {
-      "name": "Page A",
-      "uv": 4000,
-      "pv": 2400
-    },
-    {
-      "name": "Page B",
-      "uv": 3000,
-      "pv": 1398
-    },
-    {
-      "name": "Page C",
-      "uv": 2000,
-      "pv": 9800
-    },
-    {
-      "name": "Page D",
-      "uv": 2780,
-      "pv": 3908
-    },
-    {
-      "name": "Page E",
-      "uv": 1890,
-      "pv": 4800
-    },
-    {
-      "name": "Page F",
-      "uv": 2390,
-      "pv": 3800
-    },
-    {
-      "name": "Page G",
-      "uv": 3490,
-      "pv": 4300
-    }
-  ]);
-  const showPlec=()=>{
+  const [content, setContent] = useState(null);
+
+  const showPlec = () => {
+    let resContent=[];
     console.log("showplec");
-    fetch("https://absolwent.best/api/data/sex").then((res)=>res.json()).then((res)=>{setData(res);
-    console.log(res);
-    var resData=[];
-    console.log(res.data.length)
-    Object.keys(res.data).forEach((key)=>{
-      console.log(key);
-      Object.keys(res.data.Men.earnings).forEach((key1)=>{
-        resData.push({
-          "name":key1,
-          "uv":20,
-          "pv":30
-        })
+    fetch("https://absolwent.best/api/data/sex")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        let resData = [];
+        let sexKeys = [...Object.keys(res.data)];
+        let valueKeys = [];
+        let SexValues = Object.values(res.data);
+        let categoryKeys = [...Object.keys(SexValues[0])];
+        
+        for (const key in categoryKeys) {
+          let resCategory=[]
+          for (const keySex in sexKeys) {
+            valueKeys = [
+              ...Object.keys(res.data[sexKeys[keySex]][categoryKeys[key]]),
+            ];
+            let valueValues = [
+              ...Object.values(res.data[sexKeys[keySex]][categoryKeys[key]]),
+            ];
+            for (const valuesKeysIndex in valueKeys) {
+              
+              let example={name:valueKeys[valuesKeysIndex]
+              ,[sexKeys[keySex]]:valueValues[valuesKeysIndex]}
+              let CategoryAlreadyIn=false
+              for (const resCategoryindex in resCategory) {
+                if(resCategory[resCategoryindex].name===valueKeys[valuesKeysIndex])
+                  {
+                    CategoryAlreadyIn=true;
+                  }
+              }
+              if(CategoryAlreadyIn)
+              {
+                resCategory[valuesKeysIndex][sexKeys[keySex]]=valueValues[valuesKeysIndex];
+              }
+              else{
+                resCategory.push(example)
+              }
+              
+            }
+          }
+          resData[categoryKeys[key]] = resCategory
+          resContent.push(<SexCharts key={key} data={resData[categoryKeys[key]]}/>)
 
-      })
-      setData(resData);
+        }
+        
+        
 
-    })
-    
-});
-    
-  }
-  
-  const showWiek=()=>{
+         setContent(
+          <div>
+            {resContent}
+          </div>
+         );
+      });
+
+  };
+
+  const showWiek = () => {
     console.log("showWiek");
-    fetch("https://absolwent.best/api/data/year").then((res)=>res.json()).then((res)=>console.log(res));
+    let resContent=[]
+    fetch("https://absolwent.best/api/data/year")
+      .then((res) => res.json())
+      .then((res) =>{ console.log(res)
+        let resData = [];
+        let sexKeys = [...Object.keys(res.data)];
+        let valueKeys = [];
+        let SexValues = Object.values(res.data);
+        let categoryKeys = [...Object.keys(SexValues[0])];
+        
+        for (const key in categoryKeys) {
+          let resCategory=[]
+          for (const keySex in sexKeys) {
+            valueKeys = [
+              ...Object.keys(res.data[sexKeys[keySex]][categoryKeys[key]]),
+            ];
+            let valueValues = [
+              ...Object.values(res.data[sexKeys[keySex]][categoryKeys[key]]),
+            ];
+            for (const valuesKeysIndex in valueKeys) {
+              
+              let example={name:valueKeys[valuesKeysIndex]
+              ,[sexKeys[keySex]]:valueValues[valuesKeysIndex]}
+              let CategoryAlreadyIn=false
+              for (const resCategoryindex in resCategory) {
+                if(resCategory[resCategoryindex].name===valueKeys[valuesKeysIndex])
+                  {
+                    CategoryAlreadyIn=true;
+                  }
+              }
+              if(CategoryAlreadyIn)
+              {
+                resCategory[valuesKeysIndex][sexKeys[keySex]]=valueValues[valuesKeysIndex];
+              }
+              else{
+                resCategory.push(example)
+              }
+              
+            }
+          }
+          resData[categoryKeys[key]] = resCategory
+          console.log(valueKeys);
+          resContent.push(<WiekCharts key={key} keys={sexKeys} data={resData[categoryKeys[key]]}/>)
 
-  }
-  const showWydzial=()=>{
+        }
+        
+        
+
+         setContent(
+          <div>
+            {resContent}
+          </div>
+         );
+      });
+
+  };
+  const showWydzial = () => {
+    let resContent=[];
     console.log("showWydzial");
-    fetch("https://absolwent.best/api/data/faculty").then((res)=>res.json()).then((res)=>console.log(res));
+    fetch("https://absolwent.best/api/data/faculty")
+      .then((res) => res.json())
+      .then((res) => {console.log(res)
+        let resData = [];
+        let sexKeys = [...Object.keys(res.data)];
+        let valueKeys = [];
+        let SexValues = Object.values(res.data);
+        let categoryKeys = [...Object.keys(SexValues[0])];
+        
+        for (const key in categoryKeys) {
+          let resCategory=[]
+          for (const keySex in sexKeys) {
+            valueKeys = [
+              ...Object.keys(res.data[sexKeys[keySex]][categoryKeys[key]]),
+            ];
+            let valueValues = [
+              ...Object.values(res.data[sexKeys[keySex]][categoryKeys[key]]),
+            ];
+            for (const valuesKeysIndex in valueKeys) {
+              
+              let example={name:valueKeys[valuesKeysIndex]
+              ,[sexKeys[keySex]]:valueValues[valuesKeysIndex]}
+              let CategoryAlreadyIn=false
+              for (const resCategoryindex in resCategory) {
+                if(resCategory[resCategoryindex].name===valueKeys[valuesKeysIndex])
+                  {
+                    CategoryAlreadyIn=true;
+                  }
+              }
+              if(CategoryAlreadyIn)
+              {
+                resCategory[valuesKeysIndex][sexKeys[keySex]]=valueValues[valuesKeysIndex];
+              }
+              else{
+                resCategory.push(example)
+              }
+              
+            }
+          }
+          resData[categoryKeys[key]] = resCategory
+          console.log(valueKeys);
+          resContent.push(<WiekCharts key={key} keys={sexKeys} data={resData[categoryKeys[key]]}/>)
 
-  }
-  const showZarobki=()=>{
+        }
+        
+        
+
+         setContent(
+          <div>
+            {resContent}
+          </div>
+         );});
+  };
+  const showZarobki = () => {
     console.log("showZarobki");
-    fetch("https://absolwent.best/api/data/earnings").then((res)=>res.json()).then((res)=>console.log(res));
+    fetch("https://absolwent.best/api/data/earnings")
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
+  return (
+    <div>
+      <ButtonGroup size="large">
+        <Button onClick={showPlec}>Płeć</Button>
+        <Button onClick={showWiek}>Wiek</Button>
+        <Button onClick={showWydzial}>Wydział</Button>
+        <Button onClick={showZarobki}>Zarobki</Button>
+      </ButtonGroup>
 
-  }
-  return(<div>
-<ButtonGroup size="large">
-  <Button onClick={showPlec} >Płeć</Button>
-  <Button onClick={showWiek}>Wiek</Button>
-  <Button onClick={showWydzial}>Wydział</Button>
-  <Button onClick={showZarobki}>Zarobki</Button>
-  </ButtonGroup>
-  <WiekCharts data={data}></WiekCharts>
+      {/* Stworzyc switch case dla osobnych displayow */}
 
-  </div>);
+      {content}
+    </div>
+  );
 }
