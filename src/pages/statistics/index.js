@@ -1,142 +1,48 @@
 import { Button, ButtonGroup } from "@mui/material";
 import { useState } from "react";
-import SexCharts from "./components/SexCharts";
 import WiekCharts from "./components/WiekCharts";
+import container from "./style.css"
 
 export function Statistics(props) {
   const [content, setContent] = useState(null);
 
   const showPlec = () => {
-    let resContent=[];
-    console.log("showplec");
+    
     fetch("https://absolwent.best/api/data/sex")
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        let resData = [];
-        let sexKeys = [...Object.keys(res.data)];
-        let valueKeys = [];
-        let SexValues = Object.values(res.data);
-        let categoryKeys = [...Object.keys(SexValues[0])];
-        
-        for (const key in categoryKeys) {
-          let resCategory=[]
-          for (const keySex in sexKeys) {
-            valueKeys = [
-              ...Object.keys(res.data[sexKeys[keySex]][categoryKeys[key]]),
-            ];
-            let valueValues = [
-              ...Object.values(res.data[sexKeys[keySex]][categoryKeys[key]]),
-            ];
-            for (const valuesKeysIndex in valueKeys) {
-              
-              let example={name:valueKeys[valuesKeysIndex]
-              ,[sexKeys[keySex]]:valueValues[valuesKeysIndex]}
-              let CategoryAlreadyIn=false
-              for (const resCategoryindex in resCategory) {
-                if(resCategory[resCategoryindex].name===valueKeys[valuesKeysIndex])
-                  {
-                    CategoryAlreadyIn=true;
-                  }
-              }
-              if(CategoryAlreadyIn)
-              {
-                resCategory[valuesKeysIndex][sexKeys[keySex]]=valueValues[valuesKeysIndex];
-              }
-              else{
-                resCategory.push(example)
-              }
-              
-            }
-          }
-          resData[categoryKeys[key]] = resCategory
-          resContent.push(<SexCharts key={key} data={resData[categoryKeys[key]]}/>)
-
-        }
-        
-        
-
-         setContent(
-          <div>
-            {resContent}
-          </div>
-         );
+        setContent(<div className="container">{createCharts(res)}</div>);
       });
-
   };
 
   const showWiek = () => {
-    console.log("showWiek");
-    let resContent=[]
+   
     fetch("https://absolwent.best/api/data/year")
       .then((res) => res.json())
-      .then((res) =>{ console.log(res)
-        let resData = [];
-        let sexKeys = [...Object.keys(res.data)];
-        let valueKeys = [];
-        let SexValues = Object.values(res.data);
-        let categoryKeys = [...Object.keys(SexValues[0])];
-        
-        for (const key in categoryKeys) {
-          let resCategory=[]
-          for (const keySex in sexKeys) {
-            valueKeys = [
-              ...Object.keys(res.data[sexKeys[keySex]][categoryKeys[key]]),
-            ];
-            let valueValues = [
-              ...Object.values(res.data[sexKeys[keySex]][categoryKeys[key]]),
-            ];
-            for (const valuesKeysIndex in valueKeys) {
-              
-              let example={name:valueKeys[valuesKeysIndex]
-              ,[sexKeys[keySex]]:valueValues[valuesKeysIndex]}
-              let CategoryAlreadyIn=false
-              for (const resCategoryindex in resCategory) {
-                if(resCategory[resCategoryindex].name===valueKeys[valuesKeysIndex])
-                  {
-                    CategoryAlreadyIn=true;
-                  }
-              }
-              if(CategoryAlreadyIn)
-              {
-                resCategory[valuesKeysIndex][sexKeys[keySex]]=valueValues[valuesKeysIndex];
-              }
-              else{
-                resCategory.push(example)
-              }
-              
-            }
-          }
-          resData[categoryKeys[key]] = resCategory
-          console.log(valueKeys);
-          resContent.push(<WiekCharts key={key} keys={sexKeys} data={resData[categoryKeys[key]]}/>)
-
-        }
-        
-        
-
-         setContent(
-          <div>
-            {resContent}
-          </div>
-         );
+      .then((res) => {
+        setContent(<div className="container">{createCharts(res)}</div>);
       });
-
   };
   const showWydzial = () => {
-    let resContent=[];
-    console.log("showWydzial");
+ 
     fetch("https://absolwent.best/api/data/faculty")
       .then((res) => res.json())
-      .then((res) => {console.log(res)
-        let resData = [];
+      .then((res) => {
+       
+
+        setContent(<div className="container">{createCharts(res)}</div>);
+      });
+  };
+  const createCharts=(res)=>{
+    let resContent = [];
+    let resData = [];
         let sexKeys = [...Object.keys(res.data)];
         let valueKeys = [];
         let SexValues = Object.values(res.data);
         let categoryKeys = [...Object.keys(SexValues[0])];
-        
+
         for (const key in categoryKeys) {
-          let resCategory=[]
+          let resCategory = [];
           for (const keySex in sexKeys) {
             valueKeys = [
               ...Object.keys(res.data[sexKeys[keySex]][categoryKeys[key]]),
@@ -145,45 +51,48 @@ export function Statistics(props) {
               ...Object.values(res.data[sexKeys[keySex]][categoryKeys[key]]),
             ];
             for (const valuesKeysIndex in valueKeys) {
-              
-              let example={name:valueKeys[valuesKeysIndex]
-              ,[sexKeys[keySex]]:valueValues[valuesKeysIndex]}
-              let CategoryAlreadyIn=false
+              let example = {
+                name: valueKeys[valuesKeysIndex],
+                [sexKeys[keySex]]: valueValues[valuesKeysIndex],
+              };
+              let CategoryAlreadyIn = false;
               for (const resCategoryindex in resCategory) {
-                if(resCategory[resCategoryindex].name===valueKeys[valuesKeysIndex])
-                  {
-                    CategoryAlreadyIn=true;
-                  }
+                if (
+                  resCategory[resCategoryindex].name ===
+                  valueKeys[valuesKeysIndex]
+                ) {
+                  CategoryAlreadyIn = true;
+                }
               }
-              if(CategoryAlreadyIn)
-              {
-                resCategory[valuesKeysIndex][sexKeys[keySex]]=valueValues[valuesKeysIndex];
+              if (CategoryAlreadyIn) {
+                resCategory[valuesKeysIndex][sexKeys[keySex]] =
+                  valueValues[valuesKeysIndex];
+              } else {
+                resCategory.push(example);
               }
-              else{
-                resCategory.push(example)
-              }
-              
             }
           }
-          resData[categoryKeys[key]] = resCategory
-          console.log(valueKeys);
-          resContent.push(<WiekCharts key={key} keys={sexKeys} data={resData[categoryKeys[key]]}/>)
 
+          resData[categoryKeys[key]] = resCategory;
+
+          resContent.push(
+            <WiekCharts
+              key={key}
+              keys={sexKeys}
+              data={resData[categoryKeys[key]]}
+              tit={categoryKeys[key]}
+            />
+          );
         }
-        
-        
 
-         setContent(
-          <div>
-            {resContent}
-          </div>
-         );});
-  };
+      return resContent;
+  }
   const showZarobki = () => {
-    console.log("showZarobki");
     fetch("https://absolwent.best/api/data/earnings")
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        setContent(<div className="container">{createCharts(res)}</div>);
+      });
   };
   return (
     <div>
@@ -195,8 +104,9 @@ export function Statistics(props) {
       </ButtonGroup>
 
       {/* Stworzyc switch case dla osobnych displayow */}
-
+<div>
       {content}
+      </div>
     </div>
   );
 }
