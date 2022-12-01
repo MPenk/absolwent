@@ -1,8 +1,8 @@
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 
-export function CustomTextField({label, value}) {
+export function CustomTextField({label, value, maxWidth}) {
 
     const ValidationTextField = styled(TextField)({
         '& input:read-only:hover + fieldset': {
@@ -21,16 +21,15 @@ export function CustomTextField({label, value}) {
     });
 
     return(
-        <Grid item sm={2} minWidth="200px">
+        <Box sx={{ m: 1, width:"100%", maxWidth:{maxWidth}}} required>
             <ValidationTextField
                 margin="normal"
-                fullWidth
                 label={label}
                 value={value}
                 InputProps={{
                         readOnly: true,
                 }}
             />
-        </Grid>
+        </Box>
     )
 }
