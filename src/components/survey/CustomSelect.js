@@ -113,10 +113,9 @@ export function CustomSelect({value, dataName, isDisabled, handleChangeParent })
     }, [value])
     
     return (
-        <Box sx={{ m: 1, width:"100%", maxWidth:"450px"}} required>
-            <InputLabel id="demo-simple-select-error-label">{table.name}</InputLabel>
+        <Box sx={{ m: 1, width:"100%", maxWidth:"750px"}} required>
+            <InputLabel>{table.name}</InputLabel>
             <Select
-                labelId="demo-simple-select-required-label"
                 value={data.chosen}
                 label={table.name}
                 name={dataName}

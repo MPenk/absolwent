@@ -44,7 +44,7 @@ export function SurveyForm() {
 
   const handleChange = (event) => {
     data[event.target.name] = event.target.value;
-    if (event.target.name == "proffesionalActivity") {
+    if (event.target.name === "proffesionalActivity") {
       setRadioValue(event.target.value);
       if (radioValue === "tak") {
         setProffesionalActivity(true);
@@ -84,48 +84,77 @@ export function SurveyForm() {
         <Typography variant="h6" gutterBottom>
           Ankieta
         </Typography>
-        <Grid container spacing={3} alignItems="center" justifyContent="center">
-          <CustomTextField
-            label="Rok ukończenia studiów"
-            value={data.graduationYear}
-          />
-          <CustomTextField label="Kierunek studiów" value={data.field} />
-          <CustomTextField label="Wydział studiów" value={data.faculty} />
-          <CustomTextField label="Tytuł zawodowy" value={data.title} />
-          <CustomTextField label="Płeć" value={data.gender} />
-        </Grid>
-
         <div
           style={{
-            margin: "25px",
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
+            marginLeft: "20px",
           }}
         >
-          <Box>
-            <FormLabel id="akt_zawodowa">
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
+          <CustomTextField
+            maxWidth= "225px"
+            label="Rok ukończenia studiów"
+            value={data.graduationYear}
+          />
+          <CustomTextField
+            maxWidth= "275px"
+            label="Tytuł zawodowy" 
+            value={data.title} 
+          />
+          <CustomTextField
+            maxWidth= "225px"
+            label="Płeć" 
+            value={data.gender} 
+          />
+        </Grid>
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <CustomTextField 
+            maxWidth= "370px"
+            label="Kierunek studiów" 
+            value={data.field} 
+          />
+          <CustomTextField
+            maxWidth= "370px"
+            label="Wydział studiów" 
+            value={data.faculty} 
+          />
+          </Grid>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            minWidth: "200px",
+            maxWidth: "685px"
+          }}
+        >
+          <Box sx={{ m: 1, mx: 5 }}>
+            <FormLabel id="proffesionalActivity">
               Czy jest Pani/Pan aktywny zawodowo?
             </FormLabel>
             <RadioGroup
-              id="123"
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="proffesionalActivity"
               name="proffesionalActivity"
               value={radioValue}
               onChange={handleChange}
               style={{ width: "100%" }}
             >
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 70}}
                 value="tak"
                 name="proffesionalActivity"
                 control={<Radio required={true} />}
+                labelPlacement="start"
                 label="Tak"
               />
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 100}}
                 value="nie"
                 name="proffesionalActivity"
                 control={<Radio required={true} />}
+                labelPlacement="start"
                 label="Nie"
               />
             </RadioGroup>
@@ -143,7 +172,6 @@ export function SurveyForm() {
             dataName="earnings"
             isDisabled={proffesionalActivity}
             handleChangeParent={handleChange}
-            minWidth={450}
           />
 
           <CustomSelect
@@ -151,14 +179,12 @@ export function SurveyForm() {
             dataName="companySize"
             isDisabled={proffesionalActivity}
             handleChangeParent={handleChange}
-            minWidth={450}
           />
           <CustomSelect
             value={selectValue}
             dataName="townSize"
             isDisabled={proffesionalActivity}
             handleChangeParent={handleChange}
-            minWidth={450}
           />
 
           <CustomSelect
@@ -166,14 +192,12 @@ export function SurveyForm() {
             dataName="companyCategory"
             isDisabled={proffesionalActivity}
             handleChangeParent={handleChange}
-            minWidth={450}
           />
           <CustomSelect
             value={selectValue}
             dataName="jobSearchTime"
             isDisabled={proffesionalActivity}
             handleChangeParent={handleChange}
-            minWidth={450}
           />
 
           <CustomSelect
@@ -181,7 +205,6 @@ export function SurveyForm() {
             dataName="periodOfEmployment"
             isDisabled={proffesionalActivity}
             handleChangeParent={handleChange}
-            minWidth={450}
           />
         </div>
         <div
@@ -189,83 +212,111 @@ export function SurveyForm() {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
+            minWidth: "200px",
+            maxWidth: "695px",
           }}
         >
           <Box sx={{ m: 1, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
-              Czy pracujesz na terenie Polski?
+            <FormLabel id="location">
+              Czy pracuje Pan/Pani na terenie Polski?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="location"
               name="location"
               onChange={handleChange}
             >
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 70}}
                 value="tak"
                 control={<Radio required={true} />}
                 label="Tak"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 100}}
                 value="nie"
                 control={<Radio required={true} />}
                 label="Nie"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
             </RadioGroup>
           </Box>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            minWidth: "200px",
+            maxWidth: "760px"
+          }}
+        >
           <Box sx={{ m: 1, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
+            <FormLabel id="jobSatisfaction">
               Czy jest Pani/Pan zadowolona/y ze swojej pracy?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="jobSatisfaction"
               name="jobSatisfaction"
               onChange={handleChange}
             >
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 100}}
                 value="tak"
                 control={<Radio required={true} />}
                 label="Tak"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 100}}
                 value="nie"
                 control={<Radio required={true} />}
                 label="Nie"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 200}}
                 value="trudno_powiedziec"
                 control={<Radio required={true} />}
                 label="Trudno stwierdzić"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
             </RadioGroup>
           </Box>
-
-          <Box sx={{ mb: 3, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            minWidth: "200px",
+            maxWidth: "880px"
+          }}
+        >
+          <Box sx={{ m: 1, mx: 5 }}>
+            <FormLabel id="training">
               Czy po ukończeniu studiów doszkalał/a się Pan/Pani w zawodzie?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="training"
               name="training"
               onChange={handleChange}
             >
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 70}}
                 value="tak"
                 control={<Radio required={true} />}
                 label="Tak"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel
+              <FormControlLabel sx={{ minWidth: 100}}
                 value="nie"
                 control={<Radio required={true} />}
                 label="Nie"
+                labelPlacement="start"
                 disabled={proffesionalActivity}
               />
             </RadioGroup>
