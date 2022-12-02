@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Button } from "@mui/material";
 import actions from "../../reducers/user/actions";
 import { useNavigate } from "react-router-dom";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import { IconMenu } from "./IconMenu";
 
 function Icon(props) {
@@ -20,9 +19,8 @@ function Icon(props) {
           <Button
             color="inherit"
             onClick={handleAdmin}
-            startIcon={<AccountCircle />}
           >
-            Login
+            zaloguj
           </Button>
         </>
       ) : (

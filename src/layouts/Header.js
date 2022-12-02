@@ -1,6 +1,6 @@
 import { AppBar, Box, Button } from '@mui/material';
 import Icon from '../components/admin/Icon';
-import Logo from '../assets/Logo.svg'
+import Logo from '../assets/Logo.png'
 import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -38,12 +38,13 @@ export default function Header(_props) {
                     <Box sx={{ ml:3 }}>
 
                         <Typography
+                        style={{height:"100%"}}
                             variant="h6"
                             noWrap
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }}
                         >
-                            <img alt='Logo' style={{maxWidth:"52px", width:"100%"}} onClick={() => { handleRedirect('/') }} src={Logo} />
+                            <img alt='Logo' style={{maxWidth:"4em", width:"100%", maxHeight:"2em"}} onClick={() => { handleRedirect('/') }} src={Logo} />
                         </Typography>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -88,7 +89,7 @@ export default function Header(_props) {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        <img alt='Logo' onClick={() => { handleRedirect('/') }} src={Logo} />
+                        <img alt='Logo' style={{maxWidth:"4em", maxHeight:"4em"}} onClick={() => { handleRedirect('/') }} src={Logo} />
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 

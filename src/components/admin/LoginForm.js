@@ -39,14 +39,16 @@ function LoginForm(props) {
 
     return (
         <>
-            <FormControl component="form" onSubmit={handleSubmit(onSubmit)}>
+            <FormControl component="form"
+                    style={{minWidth: "20em"}}
+                    onSubmit={handleSubmit(onSubmit)}>
                 <TextField
                     error={isError(errors.login)}
                     helperText={errors.login ? errors.login.message : ""}
                     margin="normal"
                     fullWidth
                     id="Login"
-                    label="Login"
+                    label="e-mail"
                     name="Login"
                     autoComplete="email"
                     autoFocus
@@ -64,7 +66,7 @@ function LoginForm(props) {
                     margin="normal"
                     fullWidth
                     name="password"
-                    label="Hasło"
+                    label="hasło"
                     type="password"
                     id="password"
                     autoComplete="current-password"
