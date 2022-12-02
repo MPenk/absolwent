@@ -132,12 +132,12 @@ export function SurveyForm() {
           }}
         >
           <Box sx={{ m: 1, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
+            <FormLabel id="proffesionalActivity">
               Czy jest Pani/Pan aktywny zawodowo?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="proffesionalActivity"
               name="proffesionalActivity"
               value={radioValue}
               onChange={handleChange}
@@ -217,12 +217,12 @@ export function SurveyForm() {
           }}
         >
           <Box sx={{ m: 1, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
+            <FormLabel id="location">
               Czy pracuje Pan/Pani na terenie Polski?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="location"
               name="location"
               onChange={handleChange}
             >
@@ -253,12 +253,12 @@ export function SurveyForm() {
           }}
         >
           <Box sx={{ m: 1, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
+            <FormLabel id="jobSatisfaction">
               Czy jest Pani/Pan zadowolona/y ze swojej pracy?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="jobSatisfaction"
               name="jobSatisfaction"
               onChange={handleChange}
             >
@@ -296,12 +296,12 @@ export function SurveyForm() {
           }}
         >
           <Box sx={{ m: 1, mx: 5 }}>
-            <FormLabel id="akt_zawodowa">
+            <FormLabel id="training">
               Czy po ukończeniu studiów doszkalał/a się Pan/Pani w zawodzie?
             </FormLabel>
             <RadioGroup
               row
-              aria-labelledby="akt_zawodowa"
+              aria-labelledby="training"
               name="training"
               onChange={handleChange}
             >
