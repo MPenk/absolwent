@@ -14,6 +14,7 @@ import { CustomSelect } from "./CustomSelect";
 import { execute } from "../../api/connection";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
+import { CustomBox } from "./CustomBox";
 
 export function SurveyForm() {
   let navigate = useNavigate();
@@ -77,7 +78,7 @@ export function SurveyForm() {
   return (
     <div>
       <FormControl
-        style={{ width: "100%", my: 3 }}
+        style={{ width: "100%", my: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         component="form"
         onSubmit={handleSendButton}
       >
@@ -92,46 +93,44 @@ export function SurveyForm() {
             marginLeft: "20px",
           }}
         >
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
-          <CustomTextField
-            maxWidth= "225px"
-            label="Rok ukończenia studiów"
-            value={data.graduationYear}
-          />
-          <CustomTextField
-            maxWidth= "275px"
-            label="Tytuł zawodowy" 
-            value={data.title} 
-          />
-          <CustomTextField
-            maxWidth= "225px"
-            label="Płeć" 
-            value={data.gender} 
-          />
-        </Grid>
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <CustomTextField 
-            maxWidth= "370px"
-            label="Kierunek studiów" 
-            value={data.field} 
-          />
-          <CustomTextField
-            maxWidth= "370px"
-            label="Wydział studiów" 
-            value={data.faculty} 
-          />
+          <Grid container spacing={2} alignItems="center" justifyContent="center">
+            <CustomTextField
+              maxWidth="225px"
+              label="Rok ukończenia studiów"
+              value={data.graduationYear}
+            />
+            <CustomTextField
+              maxWidth="275px"
+              label="Tytuł zawodowy"
+              value={data.title}
+            />
+            <CustomTextField
+              maxWidth="225px"
+              label="Płeć"
+              value={data.gender}
+            />
+          </Grid>
+          <Grid container spacing={2} alignItems="center" justifyContent="center">
+            <CustomTextField
+              maxWidth="370px"
+              label="Kierunek studiów"
+              value={data.field}
+            />
+            <CustomTextField
+              maxWidth="370px"
+              label="Wydział studiów"
+              value={data.faculty}
+            />
           </Grid>
         </div>
         <div
           style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            minWidth: "200px",
-            maxWidth: "685px"
-          }}
-        >
-          <Box sx={{ m: 1, mx: 5 }}>
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+          }}>
+
+          <CustomBox sx={{ m: 1 }}>
             <FormLabel id="proffesionalActivity">
               Czy jest Pani/Pan aktywny zawodowo?
             </FormLabel>
@@ -143,14 +142,14 @@ export function SurveyForm() {
               onChange={handleChange}
               style={{ width: "100%" }}
             >
-              <FormControlLabel sx={{ minWidth: 70}}
+              <FormControlLabel
                 value="tak"
                 name="proffesionalActivity"
                 control={<Radio required={true} />}
                 labelPlacement="start"
                 label="Tak"
               />
-              <FormControlLabel sx={{ minWidth: 100}}
+              <FormControlLabel
                 value="nie"
                 name="proffesionalActivity"
                 control={<Radio required={true} />}
@@ -158,65 +157,57 @@ export function SurveyForm() {
                 label="Nie"
               />
             </RadioGroup>
-          </Box>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          <CustomSelect
-            value={selectValue}
-            dataName="earnings"
-            isDisabled={proffesionalActivity}
-            handleChangeParent={handleChange}
-          />
+          </CustomBox>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <CustomSelect
+              value={selectValue}
+              dataName="earnings"
+              isDisabled={proffesionalActivity}
+              handleChangeParent={handleChange}
+            />
 
-          <CustomSelect
-            value={selectValue}
-            dataName="companySize"
-            isDisabled={proffesionalActivity}
-            handleChangeParent={handleChange}
-          />
-          <CustomSelect
-            value={selectValue}
-            dataName="townSize"
-            isDisabled={proffesionalActivity}
-            handleChangeParent={handleChange}
-          />
+            <CustomSelect
+              value={selectValue}
+              dataName="companySize"
+              isDisabled={proffesionalActivity}
+              handleChangeParent={handleChange}
+            />
+            <CustomSelect
+              value={selectValue}
+              dataName="townSize"
+              isDisabled={proffesionalActivity}
+              handleChangeParent={handleChange}
+            />
 
-          <CustomSelect
-            value={selectValue}
-            dataName="companyCategory"
-            isDisabled={proffesionalActivity}
-            handleChangeParent={handleChange}
-          />
-          <CustomSelect
-            value={selectValue}
-            dataName="jobSearchTime"
-            isDisabled={proffesionalActivity}
-            handleChangeParent={handleChange}
-          />
+            <CustomSelect
+              value={selectValue}
+              dataName="companyCategory"
+              isDisabled={proffesionalActivity}
+              handleChangeParent={handleChange}
+            />
+            <CustomSelect
+              value={selectValue}
+              dataName="jobSearchTime"
+              isDisabled={proffesionalActivity}
+              handleChangeParent={handleChange}
+            />
 
-          <CustomSelect
-            value={selectValue}
-            dataName="periodOfEmployment"
-            isDisabled={proffesionalActivity}
-            handleChangeParent={handleChange}
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            minWidth: "200px",
-            maxWidth: "695px",
-          }}
-        >
-          <Box sx={{ m: 1, mx: 5 }}>
+            <CustomSelect
+              value={selectValue}
+              dataName="periodOfEmployment"
+              isDisabled={proffesionalActivity}
+              handleChangeParent={handleChange}
+            />
+          </div>
+
+          <CustomBox sx={{ m: 1 }}>
             <FormLabel id="location">
               Czy pracuje Pan/Pani na terenie Polski?
             </FormLabel>
@@ -226,14 +217,14 @@ export function SurveyForm() {
               name="location"
               onChange={handleChange}
             >
-              <FormControlLabel sx={{ minWidth: 70}}
+              <FormControlLabel
                 value="tak"
                 control={<Radio required={true} />}
                 label="Tak"
                 labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel sx={{ minWidth: 100}}
+              <FormControlLabel
                 value="nie"
                 control={<Radio required={true} />}
                 label="Nie"
@@ -241,18 +232,8 @@ export function SurveyForm() {
                 disabled={proffesionalActivity}
               />
             </RadioGroup>
-          </Box>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            minWidth: "200px",
-            maxWidth: "760px"
-          }}
-        >
-          <Box sx={{ m: 1, mx: 5 }}>
+          </CustomBox>
+          <CustomBox sx={{ m: 1 }}>
             <FormLabel id="jobSatisfaction">
               Czy jest Pani/Pan zadowolona/y ze swojej pracy?
             </FormLabel>
@@ -262,21 +243,21 @@ export function SurveyForm() {
               name="jobSatisfaction"
               onChange={handleChange}
             >
-              <FormControlLabel sx={{ minWidth: 100}}
+              <FormControlLabel
                 value="tak"
                 control={<Radio required={true} />}
                 label="Tak"
                 labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel sx={{ minWidth: 100}}
+              <FormControlLabel
                 value="nie"
                 control={<Radio required={true} />}
                 label="Nie"
                 labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel sx={{ minWidth: 200}}
+              <FormControlLabel
                 value="trudno_powiedziec"
                 control={<Radio required={true} />}
                 label="Trudno stwierdzić"
@@ -284,18 +265,10 @@ export function SurveyForm() {
                 disabled={proffesionalActivity}
               />
             </RadioGroup>
-          </Box>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            minWidth: "200px",
-            maxWidth: "880px"
-          }}
-        >
-          <Box sx={{ m: 1, mx: 5 }}>
+          </CustomBox>
+
+          <CustomBox sx={{ m: 1 }}
+          >
             <FormLabel id="training">
               Czy po ukończeniu studiów doszkalał/a się Pan/Pani w zawodzie?
             </FormLabel>
@@ -305,14 +278,14 @@ export function SurveyForm() {
               name="training"
               onChange={handleChange}
             >
-              <FormControlLabel sx={{ minWidth: 70}}
+              <FormControlLabel
                 value="tak"
                 control={<Radio required={true} />}
                 label="Tak"
                 labelPlacement="start"
                 disabled={proffesionalActivity}
               />
-              <FormControlLabel sx={{ minWidth: 100}}
+              <FormControlLabel
                 value="nie"
                 control={<Radio required={true} />}
                 label="Nie"
@@ -320,7 +293,7 @@ export function SurveyForm() {
                 disabled={proffesionalActivity}
               />
             </RadioGroup>
-          </Box>
+          </CustomBox>
         </div>
         <div
           style={{
@@ -344,3 +317,5 @@ export function SurveyForm() {
     </div>
   );
 }
+
+
