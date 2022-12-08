@@ -8,8 +8,7 @@ import { ResetPassword } from "../../components/admin/resetPassword/ResetPasswor
 export function Admin(_props) {
   const location = useLocation();
   const getDashboardPanel = () => {
-    if (location.pathname.indexOf("/admin/suvery/send/now") == 0) return 2;
-    if (location.pathname.indexOf("/admin/graduate/list") == 0) return 3;
+    if (location.pathname.indexOf("/admin/graduate/list") == 0) return 2;
     if (location.pathname.indexOf("/admin/suvery/send") == 0) return 1;
     else return 0;
   };

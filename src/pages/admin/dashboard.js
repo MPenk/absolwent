@@ -46,9 +46,6 @@ export function Dashboard(props) {
         navigate("/admin/suvery/send");
         break;
       case 2:
-        navigate("/admin/suvery/send/now");
-        break;
-      case 3:
         navigate("/admin/graduate/list");
         break;
     }
@@ -69,16 +66,12 @@ export function Dashboard(props) {
             onChange={handleChange}
             textColor="inherit"
             variant="scrollable"
+            scrollButtons
             allowScrollButtonsMobile
           >
             <Tab label="Rejestracja nowego absolwenta" {...a11yProps(0)} />
             <Tab label="Wysyłanie ankiety" {...a11yProps(1)} />
-            {ENV != "Prod" && (
-              <Tab label="[DEV] Wysyłanie ankiety" {...a11yProps(2)} />
-            )}
-            {ENV != "Prod" && (
-              <Tab label="[DEV] Lista Absolwentów" {...a11yProps(3)} />
-            )}
+            <Tab label="Lista Absolwentów" {...a11yProps(2)} />
           </Tabs>
           <Container maxWidth="sm">
             <TabPanel value={value} index={0}>
@@ -87,16 +80,9 @@ export function Dashboard(props) {
             <TabPanel value={value} index={1}>
               <SendPool />
             </TabPanel>
-            {ENV != "Prod" && (
-              <TabPanel value={value} index={2}>
-                <SendPoolNow />
-              </TabPanel>
-            )}
-            {ENV != "Prod" && (
-              <TabPanel value={value} index={3}>
-                <GraduateList />
-              </TabPanel>
-            )}
+            <TabPanel value={value} index={2}>
+              <GraduateList />
+            </TabPanel>
           </Container>
         </Box>
       </Container>
