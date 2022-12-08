@@ -1,3 +1,4 @@
+import { maxWidth, width } from "@mui/system";
 import {
     BarChart,
     Bar,
@@ -18,17 +19,23 @@ export default function WiekCharts({data ,keys,tit}){
     return(
      
       <div style={{textAlign:"center"}}>
-<h1>{TITLES[tit]}</h1>
-    <BarChart title="tytul" style={{display:"inline-block"}} width={400} height={250} data={data} >
+<h3>{TITLES[tit]}</h3>
+    <BarChart  style={{display:"inline-block"}} width={500} height={250} data={data} >
      
   <CartesianGrid strokeDasharray="3 3" />
-  <XAxis dataKey="name" />
-  <YAxis />
-  <Tooltip />
-  <Legend />
+  <XAxis allowDataOverflow={true} dataKey="name"  style={{fontSize:"10px"}}  interval={0}  tickFormatter={tickFormatter}/>
+  <YAxis allowDecimals={false}/>
+  <Tooltip viewBox={ {x: 0, y: 500, width: 400, height: 400 }}/>
+    <Legend />
  
  {bars}
 </BarChart>
 
 </div>);
 }
+const tickFormatter = (value,index) => {
+  const limit = 15; // put your maximum character
+  if (value.length < limit) return value;
+  return `${value.substring(0, limit)}...`;
+};
+
