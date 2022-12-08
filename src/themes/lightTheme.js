@@ -42,6 +42,28 @@ export const lightTheme = createTheme({
         },
       },
     },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: primaryColor,
+              'border-radius': radius,
+            },
+          },
+          'border-radius': radius,
+          'box-shadow': shadow,
+          "& .MuiInputLabel-root": {
+            right: 0,
+            textAlign: "center"
+          },
+          "& .MuiInputLabel-shrink": {
+            textAlign: "left"
+          },
+
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root:{
