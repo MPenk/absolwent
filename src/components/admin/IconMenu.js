@@ -43,7 +43,7 @@ export function IconMenu(props) {
   return (
     <>
       <Box sx={{ flexGrow: 0 }}>
-        <Tooltip title="Open settings">
+        <Tooltip title={props.user.login}>
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
             {props.user.isLogged && (
               <Avatar sx={{ bgcolor: stringToColor(props.user.login) }}>
