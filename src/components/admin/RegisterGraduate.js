@@ -99,7 +99,12 @@ export function RegisterGraduate() {
               requirements={{
                 minLength: { value: 3, message: "Minimalna długość to 3" },
                 maxLength: { value: 50, message: "Maksymalna długość to 50" },
+                pattern:{
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Nieprawidłowy adres e-mail"
+                }
               }}
+             
               handleChangeError={handleChangeError}
             />
             <CustomTextField

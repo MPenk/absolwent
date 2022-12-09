@@ -5,10 +5,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
 import Grid from "@mui/material/Grid";
+import { TextField } from "@mui/material";
 import { SendPoolConfirm } from "./SendPoolConfirm";
 
 export function SendPool(_props) {
   const [value, setValue] = useState(12);
+  const [groupName, setGroupName] = useState("");
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleToggleDialog = () => {
@@ -18,6 +20,10 @@ export function SendPool(_props) {
   const handleSliderChange = (_event, newValue) => {
     setValue(newValue);
   };
+  const handleGroupNameChange = (_event) => {
+    setGroupName(_event.target.value);
+  };
+
 
   const handleInputChange = (event) => {
     setValue(event.target.value === "" ? "" : Number(event.target.value));
@@ -34,21 +40,22 @@ export function SendPool(_props) {
     <>
       <Box sx={{ margin: 3, minWidth: "300px" }}>
         <Typography id="input-slider" gutterBottom>
-          Wybierz częstotliwość wysyłania ankiety
+          Wybierz czas trwania ankiety &#91;w dniach&#93;
         </Typography>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs>
             <Slider
               margin="normal"
-              aria-label="Częstotliwość"
+              aria-label="Czas"
               value={typeof value === "number" ? value : 0}
               valueLabelDisplay="auto"
               step={1}
               marks
               min={3}
-              max={24}
+              max={60}
               onChange={handleSliderChange}
             />
+
           </Grid>
           <Grid item>
             <Input
@@ -66,6 +73,13 @@ export function SendPool(_props) {
             />
           </Grid>
         </Grid>
+        <TextField
+              margin="normal"
+              label="Nazwa grupy"
+              onChange={handleGroupNameChange}
+              type="text"
+              sx={{ margin: 3, minWidth: "15em" }}
+            />
       </Box>
       <Button variant="outlined" onClick={handleToggleDialog}>
         Wyślij ankiety
@@ -74,6 +88,7 @@ export function SendPool(_props) {
         openDialog={openDialog}
         setOpenDialog={setOpenDialog}
         frequency={value}
+        groupName={groupName}
       />
     </>
   );

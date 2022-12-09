@@ -28,10 +28,10 @@ export const lightTheme = createTheme({
             '& fieldset': {
               borderColor: primaryColor,
               'border-radius': radius,
+              'box-shadow': shadow,
             },
           },
           'border-radius': radius,
-          'box-shadow': shadow,
           "& .MuiInputLabel-root": {
             right: 0,
             textAlign: "center"
@@ -46,9 +46,6 @@ export const lightTheme = createTheme({
     MuiTabs: {
       styleOverrides: {
         scroller: {
-          'display': '-webkit-box',
-          'display': '-webkit-flex',
-          'display': '-ms-flexbox',
           'display': 'flex',
           'justify-content': 'center'
         }

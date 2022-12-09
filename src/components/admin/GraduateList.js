@@ -28,8 +28,8 @@ export function GraduateList(_props) {
   const handleDelete = async (value) => {
     const response = await execute({
       path: "/admin/graduate/delete",
-      requestMethod: "POST",
-      data: { id: parseInt(value) },
+      requestMethod: "DELETE",
+      data: { graduateId: parseInt(value) },
     });
     if (response) {
       setRefresh(value);
@@ -52,7 +52,7 @@ export function GraduateList(_props) {
                       " - " +
                       graduate.field +
                       " " +
-                      graduate.graduationYear
+                      graduate.graduation_year
                     }
                     secondary={
                       <React.Fragment>
@@ -62,7 +62,7 @@ export function GraduateList(_props) {
                           variant="body2"
                           color="text.primary"
                         >
-                          {graduate.name + " " + graduate.lastName + " - "}
+                          {graduate.name + " " + graduate.lastname + " - "}
                         </Typography>
                         {graduate.title + " " + graduate.email}
                       </React.Fragment>
@@ -71,7 +71,7 @@ export function GraduateList(_props) {
                   <IconButton
                     edge="end"
                     aria-label="delete"
-                    onClick={() => handleDelete(graduate.id)}
+                    onClick={() => handleDelete(graduate.graduate_id)}
                     id="test"
                     name="test"
                     value="test"
