@@ -24,7 +24,7 @@ export function SurveyForm() {
     const response = await execute({
       path: "/survey",
       requestMethod: "POST",
-      data: { ...data, token: searchParams.get("key") },
+      data: { ...data, endingDate: data.year, token: searchParams.get("token") },
     });
     if (response) navigate("/survey/thanks");
   };
@@ -64,7 +64,7 @@ export function SurveyForm() {
         const response = await execute({
           path: "/auth/survey",
           requestMethod: "POST",
-          data: { token: searchParams.get("key") },
+          data: { token: searchParams.get("token") },
         });
         if (response) {
           setData(response.data);
@@ -97,7 +97,7 @@ export function SurveyForm() {
             <CustomTextField
               maxWidth="225px"
               label="Rok ukończenia studiów"
-              value={data.graduationYear}
+              value={data.year}
             />
             <CustomTextField
               maxWidth="275px"
