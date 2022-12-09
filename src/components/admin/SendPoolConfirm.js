@@ -11,6 +11,7 @@ import store from "../../store";
 import actions from "../../reducers/alerts/actions";
 
 export function SendPoolConfirm(props) {
+  console.log(props)
   const [value] = useState(props.frequency);
   const [groupName] = useState(props.groupName);
   let navigate = useNavigate();
@@ -26,10 +27,11 @@ export function SendPoolConfirm(props) {
 
   const handleSend = async () => {
     handleToggleDialog();
+    console.log(groupName)
     const result = await execute({
       path: "/admin/survey",
       requestMethod: "POST",
-      data: { valid_days: parseInt(value),  group_name: (groupName)},
+      data: { valid_days: parseInt(props.frequency),  group_name: props.groupName},
     });
 
     if (result) {
