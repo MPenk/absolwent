@@ -1,23 +1,24 @@
 export const COLORS = Object.freeze([
-  "#33ff47",
-  "#3336ff",
-  "#ff4433",
-  "#ff33eb",
-  "#e7ff33",
+  
+  "#C83AE0",
+  "#E08046",
+  "#2F3EE0",
+  "#99E046",
+  "#24DEE0",
   "#cc0069",
   "#39b300",
 ]);
 export const TITLES = Object.freeze({
-  company_category:"typ firmy",
-  town_size:"wielkość firmy",
-  earnings:"zarobki",
-  job_search_time:"czas szukania pracy",
-  training:"dodatkowe wykształcenie",
-  company_size:"wielkość firmy",
-  job_satisfaction:"satysfakcja z pracy",
-  proffesional_activity:"aktywność zawodowa",
-  title:"tytuł naukowy",
-  period_of_employment:"czas zatrudnienia",
-  faculty:"wydział",
-  field:"kierunek"
+  company_category:"Ilość absolwentów w danej branży",
+  town_size:"Ilość absolwentów, a wielkość miasta",
+  earnings:"ilość absolwentów z danymi zarobkami",
+  job_search_time:"Ilość absolwentów, a średni czas szukania przez nich zatrudnienia",
+  training:"Ilość absolwentów z dodatkowym zatrudnieniem",
+  company_size:"Ilość absolwentów a wielkość firm",
+  job_satisfaction:"Ilość absolwentów usatysfakcjonowanych z pracy",
+  proffesional_activity:"Ilość absolwentów, a ich aktywność zawodowa",
+  title:"Ilość absolwentów z danym tytułem naukowym",
+  period_of_employment:"Ilość absolwentów, a ich czas zatrudnienia",
+  faculty:"Ilość absolwentów po danym wydziale",
+  field:"Ilość absolwentów po danym kierunku"
 })
