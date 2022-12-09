@@ -21,9 +21,9 @@ export function Login(_props) {
                         alignItems: 'center',
                     }}
                 >
-                    Logowanie
+                    <strong style={{fontSize:'3em'}}>Zaloguj się</strong>
                     <LoginForm/>
-                    <Link variant="body2" onClick={handeClickRemindPassword}>
+                    <Link style={{textDecoration: 'none'}} variant="body2" onClick={handeClickRemindPassword}>
                         Zapomniałeś hasła?
                     </Link>
                 </Box>

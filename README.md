@@ -51,6 +51,11 @@
 <br>
 
 
+
+# [Deployment repo](https://github.com/UMG-INF-2019-2020/Absolwent)
+
+<br>
+
 # Użyte Biblioteki
 [Redux](https://www.npmjs.com/package/redux)
 [Redux Thunk](https://www.npmjs.com/package/redux-thunk)
@@ -61,10 +66,5 @@
 
 [React Router DOM](https://www.npmjs.com/package/react-router-dom)
 
-[Echarts](https://www.npmjs.com/package/echarts)
-- [Dokumentacja](https://echarts.apache.org/handbook/en/get-started/)
-- [Przykłady](https://echarts.apache.org/examples/en/index.html)
-
-[Echarts-for-react](https://www.npmjs.com/package/echarts-for-react)
 
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)

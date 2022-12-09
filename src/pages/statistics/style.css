@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% 50% ;
+    grid-gap: 1rem;
+    grid-auto-flow: row;
+  }
+  .chart{
+    width: 500px;
+
+  }

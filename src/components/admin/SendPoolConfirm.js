@@ -11,7 +11,9 @@ import store from "../../store";
 import actions from "../../reducers/alerts/actions";
 
 export function SendPoolConfirm(props) {
+  console.log(props)
   const [value] = useState(props.frequency);
+  const [groupName] = useState(props.groupName);
   let navigate = useNavigate();
   useEffect(() => {
     props.setOpenDialog(props.openDialog);
@@ -25,10 +27,11 @@ export function SendPoolConfirm(props) {
 
   const handleSend = async () => {
     handleToggleDialog();
+    console.log(groupName)
     const result = await execute({
       path: "/admin/survey",
       requestMethod: "POST",
-      data: { frequency: parseInt(value) },
+      data: { valid_days: parseInt(props.frequency),  group_name: props.groupName},
     });
 
     if (result) {
@@ -46,10 +49,10 @@ export function SendPoolConfirm(props) {
   return (
     <>
       <Dialog onClose={handleCloseDialog} open={props.openDialog}>
-        <DialogTitle>Ustaw częstotliwość</DialogTitle>
+        <DialogTitle>Wyślij ankiety</DialogTitle>
         <Box sx={{ margin: 3, minWidth: "300px" }}>
           <Typography id="input-slider" gutterBottom>
-            Czy na pewno chcesz wysłać ankiety z częstotliwością {value}?
+            Czy na pewno chcesz wysłać ankiety ważne przez {value} dni dla grupy {groupName}?
           </Typography>
         </Box>
 

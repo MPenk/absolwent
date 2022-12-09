@@ -26,12 +26,10 @@ export function SendPoolNow(_props) {
         <TextField
           margin="normal"
           label="Rok"
-          value={typeof value === "number" ? value : 0}
-          step={1}
-          min={1990}
-          max={2022}
+          inputProps={{ min: "1990", max: "2022", step: "1" }}
           onChange={handleSliderChange}
           type="number"
+          sx={{ margin: 3, minWidth: "15em" }}
         />
       </Box>
       <Button variant="outlined" onClick={handleToggleDialog}>
