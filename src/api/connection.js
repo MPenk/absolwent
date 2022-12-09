@@ -32,8 +32,6 @@ export const execute = async ({ path, requestMethod, setError, data, showBackdro
             return false;
         } catch (error) {
             if (ENV != "Prod") {
-                console.log(err)
-                console.log(error);
             }
         }
     })

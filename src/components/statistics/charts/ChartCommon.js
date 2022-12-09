@@ -5,12 +5,8 @@ import { useState } from "react";
 export function ChartCommon(props) {
   const [data, setData] = useState(props.dane);
   const kategorie = props.kategoria;
-  console.log("NOWY");
-  console.log(data);
-  console.log(kategorie);
   const keysKategorie=[];
   for(var key in kategorie) keysKategorie.push(key);
-  console.log(keysKategorie);
   
 const option = {
 

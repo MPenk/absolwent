@@ -43,6 +43,13 @@ export const lightTheme = createTheme({
         },
       },
     },
+    MuiFormControl:{
+      styleOverrides:{
+        root:{
+          'max-width': 'none',
+        }
+      }
+    },
     MuiTabs: {
       styleOverrides: {
         scroller: {

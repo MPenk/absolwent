@@ -15,14 +15,12 @@ export function CategoryChart(props) {
   const [dane, setDane] = useState([]);
   const [category, setCategory] = useState([]);
   const [ans, setAns] = useState([]);
-  console.log(kategorie);
   let checkKategorie=[];
   for(var x in props.dane.kategoria){
     if(props.dane.kategoria[x]){
         checkKategorie.push(kategorie.kategoria[x]);
     }
   }
-  console.log(checkKategorie);
   let apiUrl = config.API_URL;
 
   if(process.env.REACT_APP_API_URL){
