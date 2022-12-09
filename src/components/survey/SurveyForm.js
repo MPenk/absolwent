@@ -97,7 +97,7 @@ export function SurveyForm() {
             <CustomTextField
               maxWidth="225px"
               label="Rok ukończenia studiów"
-              value={data.year}
+              value={new String(data.year)}
             />
             <CustomTextField
               maxWidth="275px"
