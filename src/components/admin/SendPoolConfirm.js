@@ -29,7 +29,7 @@ export function SendPoolConfirm(props) {
     const result = await execute({
       path: "/admin/survey",
       requestMethod: "POST",
-      data: { valid_days: parseInt(value),  group_name: {groupName}},
+      data: { valid_days: parseInt(value),  group_name: (groupName)},
     });
 
     if (result) {
