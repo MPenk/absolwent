@@ -163,10 +163,9 @@ export function SurveyForm() {
           <div
             style={{
               display: "flex",
-              flexWrap: "wrap",
+              flexDirection : "column",
               justifyContent: "center",
               width: "100%",
-              flexFirection: "column",
             }}
           >
             <CustomSelect

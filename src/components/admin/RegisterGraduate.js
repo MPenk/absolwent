@@ -9,6 +9,8 @@ import actions from "../../reducers/alerts/actions";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import { CustomTextField } from "./CustomTextField";
+import { t } from "../../translations/t";
+
 export function RegisterGraduate() {
   const [error, setErrorApi] = useState({ exist: false, message: "" });
   const methodsForm = useForm();
@@ -28,8 +30,8 @@ export function RegisterGraduate() {
       methodsForm.reset({ name: null, lastName: null, email: null });
       store.dispatch(
         actions.add({
-          title: "Dodano",
-          message: "Dodano " + data.email,
+          title: t("Added"),
+          message: t("Added") + " " + data.email,
           type: "success",
         })
       );

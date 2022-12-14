@@ -8,6 +8,7 @@ import { execute } from "../../api/connection";
 import { useNavigate } from "react-router-dom";
 import store from "../../store";
 import actions from "../../reducers/alerts/actions";
+import { t } from "../../translations/t";
 
 export function SendPoolConfirmNow(props) {
   const [value] = useState(props.frequency);
@@ -33,8 +34,8 @@ export function SendPoolConfirmNow(props) {
     if (result) {
       store.dispatch(
         actions.add({
-          title: "Sukces",
-          message: "Wysyłanie ankiet",
+          title: t("Success"),
+          message: t("Sending surveys"),
           type: "success",
         })
       );

@@ -2,6 +2,7 @@ import { API_URL, ENV } from '../utils/config';
 import store from '../store';
 import actions from '../reducers/alerts/actions';
 import { backdropActions as actionBackdrop } from '../reducers/backdrop';
+import { t } from '../translations/t';
 
 export const execute = async ({ path, requestMethod, setError, data, showBackdrop = true }) => {
     if (!!setError) setError({ exist: false, message: "" })
@@ -26,7 +27,7 @@ export const execute = async ({ path, requestMethod, setError, data, showBackdro
     }).catch(async err => {
         try {
             err.json().then(response => {
-                store.dispatch(actions.add({ title: "Error", message: response.message, type: "error" }));
+                store.dispatch(actions.add({ title: t("Error"), message: t(response.message), type: "error" }));
                 if (!!setError) setError({ exist: true, message: response.message })
             });
             return false;

@@ -1,7 +1,7 @@
 import types from "./types"
 import { v4 as uuidv4 } from 'uuid';
 
-const INITIAL_STATE = localStorage.getItem("alerts") ? JSON.parse(localStorage.getItem("alerts")) : []
+const INITIAL_STATE = []
 
 const alertsReducer = (state = INITIAL_STATE, action = null) => {
     switch (action.type) {
@@ -10,7 +10,8 @@ const alertsReducer = (state = INITIAL_STATE, action = null) => {
                 ...action.item,
                 uuid: uuidv4()
             }
-            return [...state, alert];
+            let arr = [...state, alert]
+            return arr.slice(-3);
 
 
         case types.REMOVE_ALERT:
