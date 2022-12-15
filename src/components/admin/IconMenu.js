@@ -76,14 +76,6 @@ export function IconMenu(props) {
           >
             Panel
           </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleCloseUserMenu();
-              handleSurvey();
-            }}
-          >
-            Ankieta
-          </MenuItem>
           <Logout handleCloseUserMenu={handleCloseUserMenu} />
         </Menu>
       </Box>

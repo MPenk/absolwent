@@ -15,7 +15,6 @@ export function TownSizeChart(props) {
   const [dane, setDane] = useState([]);
   const [category, setCategory] = useState([]);
   const [ans, setAns] = useState([]);
-  console.log(kategorie);
   let checkKategorie=[];
   for(var x in props.dane.miasto){
     if(props.dane.miasto[x]){
@@ -46,8 +45,6 @@ export function TownSizeChart(props) {
             cat.push(answear[x].name);
             val.push(answear[x].count);
           }
-          console.log(cat)
-          console.log(val);
           setDane(dane=>[...dane,val]);
           setCategory(category=>[...category,cat]);
         })

@@ -128,6 +128,8 @@ export function SurveyForm() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
+            flexFirection: "column",
+
           }}>
 
           <CustomBox sx={{ m: 1 }}>
@@ -161,7 +163,7 @@ export function SurveyForm() {
           <div
             style={{
               display: "flex",
-              flexWrap: "wrap",
+              flexDirection : "column",
               justifyContent: "center",
               width: "100%",
             }}

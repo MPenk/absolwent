@@ -6,6 +6,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { connect } from 'react-redux';
 import actions from '../reducers/alerts/actions';
 import CircularProgress from '@mui/material/CircularProgress';
+import { t } from '../translations/t';
+
 function Alert({ alert, ...props }) {
     const [open, setOpen] = useState(true);
     const [progress, setProgress] = React.useState(1);
@@ -43,7 +45,7 @@ function Alert({ alert, ...props }) {
                     </>
                 } sx={{ mb: 2 }} severity={alert.type} >
                     {alert.title && <AlertTitle sx={{ display: 'flex' }}>{alert.title}</AlertTitle>}
-                    {alert.message ? alert.message : "Nieznany błąd"}
+                    {alert.message || t("Unknown error")}
                 </AlertMui>
 
             </Stack>

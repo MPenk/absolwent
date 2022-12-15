@@ -16,6 +16,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import store from "../../../store";
 import actions from "../../../reducers/alerts/actions";
+import { t } from "../../../translations/t";
 
 export function ResetPassword(_props) {
   const [values, setValues] = React.useState({
@@ -57,8 +58,8 @@ export function ResetPassword(_props) {
     if (result) {
       store.dispatch(
         actions.add({
-          title: "Zmieniono hasło",
-          message: "Poprawnie zmieniono hasło, spróbuj się zalogować!",
+          title: t("Password changed"),
+          message: t("Password changed successfully, try logging in!"),
           type: "success",
         })
       );
